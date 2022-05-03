@@ -1,11 +1,14 @@
+
 <template>
   <div>
-    {{project.name}}
+    {{ project.name }}
     <br>
-    {{project.address}}
+    {{ project.address }}
     <br>
-    {{project.startTime}}
+    {{ project.startTime }}
     <br>
+    <br>
+
     <table class="table">
       <thead>
       <tr>
@@ -20,18 +23,30 @@
         <td>{{ task.userId }}</td>
       </tr>
       </tbody>
-
     </table>
+
+    <br>
+
+<div class="img-thumbnail">
+  <img  class="rounded float" v-for="picture in pictures" :src="'data:image/jpeg;base64,'+picture.data" style="height: 300px"/>
+</div>
+
+    <br>
+
   </div>
 </template>
 
+
+
 <script>
+
 export default {
   name: "TalgudLisainfoView",
 
   data: function () {
     return {
       tasks: {},
+      pictures: {},
       project: JSON.parse(sessionStorage.getItem('project')),
     }
   },
@@ -47,13 +62,26 @@ export default {
             this.tasks = response.data
           })
           .catch(error => console.log(error.response.data))
+    },
+    getAllPictures: function () {
+      this.$http.get('/picture', {
+        params: {
+          projectId: this.project.id
+        }
+      })
+          .then(response => {
+            this.pictures = response.data
+          })
+          .catch(error => console.log(error.response.data))
     }
   },
   mounted() {
     this.getAllTasksForProject()
-  }
+    this.getAllPictures()
+  },
+
 }
 
-
 </script>
+
 

@@ -31,7 +31,7 @@ export default {
   name: "TulevasedTalgudView",
   data: function () {
     return {
-      projectId: null,
+      // projectId: null,
       // project: {},
       projects: {}
     }

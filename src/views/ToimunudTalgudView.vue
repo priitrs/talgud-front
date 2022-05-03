@@ -17,7 +17,9 @@
         <td>{{ project.name }}</td>
         <td>{{ project.address }}</td>
         <td>
-          <button type="button" class="btn btn-secondary btn-sm">Lisainfo</button>
+          <button type="button" class="btn btn-secondary btn-sm" v-on:click="navigateToTalgudLisainfo(project)">
+            Lisainfo
+          </button>
         </td>
       </tr>
       </tbody>
@@ -36,20 +38,25 @@ export default {
       projects: {}
     }
   },
-  methods:{
-    getAllOldProjects: function (){
+  methods: {
+    getAllOldProjects: function () {
       this.$http.get('/project-old')
-      .then(response=> {
-        this.projects = response.data
-        console.log(response.data)
-      })
-      .catch(error=> console.log(error))
+          .then(response => {
+            this.projects = response.data
+            console.log(response.data)
+          })
+          .catch(error => console.log(error))
 
-    }
     },
-    mounted() {
-      this.getAllOldProjects()
-    }
+    navigateToTalgudLisainfo: function (project) {
+
+      sessionStorage.setItem('project', JSON.stringify(project))
+      this.$router.push({name: 'lisainfoRoute'})
+    },
+  },
+  mounted() {
+    this.getAllOldProjects()
+  }
 
 
 }

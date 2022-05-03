@@ -1,5 +1,10 @@
 <template>
   <div>
+    {{project.name}}
+    <br>
+    {{project.address}}
+    <br>
+    {{project.startTime}}
     <br>
     <table class="table">
       <thead>
@@ -27,16 +32,15 @@ export default {
   data: function () {
     return {
       tasks: {},
-      projectId: this.$route.query.projectId
-
+      project: JSON.parse(sessionStorage.getItem('project')),
     }
   },
 
   methods: {
-    getAllTasksForProject: function (projectId) {
+    getAllTasksForProject: function () {
       this.$http.get('/task', {
         params: {
-          projectId: projectId
+          projectId: this.project.id
         }
       })
           .then(response => {
@@ -46,7 +50,7 @@ export default {
     }
   },
   mounted() {
-    this.getAllTasksForProject(this.projectId)
+    this.getAllTasksForProject()
   }
 }
 

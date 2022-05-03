@@ -17,7 +17,7 @@
         <td>{{ project.name }}</td>
         <td>{{ project.address }}</td>
         <td>
-          <button type="button" class="btn btn-secondary btn-sm" v-on:click="navigateToTalgudLisainfo(project.id)">Lisainfo</button>
+          <button type="button" class="btn btn-secondary btn-sm" v-on:click="navigateToTalgudLisainfo(project)">Lisainfo</button>
         </td>
       </tr>
       </tbody>
@@ -45,9 +45,10 @@ export default {
           })
           .catch(error => console.log(error))
     },
-    navigateToTalgudLisainfo: function (projectId) {
-      console.log('see on project id ' + projectId)
-      this.$router.push({name: 'lisainfoRoute', query: {projectId: projectId}})
+    navigateToTalgudLisainfo: function (project) {
+
+      sessionStorage.setItem('project',JSON.stringify(project))
+      this.$router.push({name: 'lisainfoRoute'})
     },
   },
 

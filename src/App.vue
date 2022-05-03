@@ -1,30 +1,26 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+<!--    <router-link to="/">Avaleht</router-link>-->
+    <nav >
+      <ul class="nav justify-content-center">
+
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#"><router-link to="/">Avaleht</router-link></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"><router-link to="/Toimunud">Toimunud Talgud</router-link></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"><router-link to="/Tulevased">Tulevased Talgud</router-link></a>
+        </li>
+      </ul>
     </nav>
+
     <router-view/>
   </div>
 </template>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
 
 nav a.router-link-exact-active {
   color: #42b983;

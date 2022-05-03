@@ -1,6 +1,10 @@
 <template>
   <div id="app">
-<!--    <router-link to="/">Avaleht</router-link>-->
+    <br>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button class="btn btn-primary me-md-2" type="submit">Logi sisse</button>
+    </div>
+
     <nav >
       <ul class="nav justify-content-center">
 

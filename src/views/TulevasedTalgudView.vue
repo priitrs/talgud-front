@@ -17,7 +17,7 @@
         <td>{{ project.name }}</td>
         <td>{{ project.address }}</td>
         <td>
-          <button type="button" class="btn btn-secondary btn-sm">Lisainfo</button>
+          <button type="button" class="btn btn-secondary btn-sm" v-on:click="navigateToTalgudLisainfo(project.id)">Lisainfo</button>
         </td>
       </tr>
       </tbody>
@@ -31,6 +31,7 @@ export default {
   name: "TulevasedTalgudView",
   data: function () {
     return {
+      projectId: null,
       // project: {},
       projects: {}
     }
@@ -43,7 +44,11 @@ export default {
             console.log(response.data)
           })
           .catch(error => console.log(error))
-    }
+    },
+    navigateToTalgudLisainfo: function (projectId) {
+      console.log('see on project id ' + projectId)
+      this.$router.push({name: 'lisainfoRoute', query: {projectId: projectId}})
+    },
   },
 
   mounted() {

@@ -18,7 +18,7 @@
 
       <tbody>
       <tr v-for="task in tasks">
-        <td scope="row">{{ task.name }}</td>
+        <td >{{task.name}}</td>
         <td>{{ task.userId }}</td>
       </tr>
       </tbody>
@@ -29,13 +29,6 @@
     <!--<div class="img-thumbnail">-->
     <!--  <img  class="rounded float" v-for="picture in pictures" :src="'data:image/jpeg;base64,'+picture.data" style="height: 300px"/>-->
     <!--</div>-->
-
-    <!--    <br>-->
-    <!--    <div id="galerii">-->
-    <!--      <img class="image" v-for="(image, i) in images" :src="image" :key="i" @click="index = i">-->
-    <!--      <vue-gallery-slideshow :images="images" :index="index" @close="index = null"></vue-gallery-slideshow>-->
-    <!--    </div>-->
-    <!--    <br>-->
 
         <div id="galerii">
           <img class="image" v-for="(picture, i) in pictures" :src="picture" :key="i"
@@ -59,7 +52,6 @@ export default {
       tasks: {},
       picturesTemp: {},
       project: JSON.parse(sessionStorage.getItem('project')),
-
       pictures: [],
       index: null
     }

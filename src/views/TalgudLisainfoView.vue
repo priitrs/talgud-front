@@ -1,4 +1,3 @@
-
 <template>
   <div>
     {{ project.name }}
@@ -27,15 +26,25 @@
 
     <br>
 
-<div class="img-thumbnail">
-  <img  class="rounded float" v-for="picture in pictures" :src="'data:image/jpeg;base64,'+picture.data" style="height: 300px"/>
-</div>
+    <!--<div class="img-thumbnail">-->
+    <!--  <img  class="rounded float" v-for="picture in pictures" :src="'data:image/jpeg;base64,'+picture.data" style="height: 300px"/>-->
+    <!--</div>-->
 
-    <br>
+    <!--    <br>-->
+    <!--    <div id="galerii">-->
+    <!--      <img class="image" v-for="(image, i) in images" :src="image" :key="i" @click="index = i">-->
+    <!--      <vue-gallery-slideshow :images="images" :index="index" @close="index = null"></vue-gallery-slideshow>-->
+    <!--    </div>-->
+    <!--    <br>-->
+
+        <div id="galerii">
+          <img class="image" v-for="(picture, i) in pictures" :src="picture" :key="i"
+               @click="index = i" style="height: 200px">
+          <vue-gallery-slideshow :images="pictures" :index="index" @close="index = null"></vue-gallery-slideshow>
+        </div>
 
   </div>
 </template>
-
 
 
 <script>
@@ -43,11 +52,16 @@
 export default {
   name: "TalgudLisainfoView",
 
+  components: {VueGallerySlideshow},
+
   data: function () {
     return {
       tasks: {},
-      pictures: {},
+      picturesTemp: {},
       project: JSON.parse(sessionStorage.getItem('project')),
+
+      pictures: [],
+      index: null
     }
   },
 
@@ -70,7 +84,11 @@ export default {
         }
       })
           .then(response => {
-            this.pictures = response.data
+            this.picturesTemp = response.data
+            for (let i = 0; i < this.picturesTemp.length; i++) {
+
+              this.pictures.push('data:image/jpeg;base64,' + this.picturesTemp[i].data)
+            }
           })
           .catch(error => console.log(error.response.data))
     }

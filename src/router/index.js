@@ -12,7 +12,7 @@ import RegistrationView from "@/views/RegistrationView";
 Vue.use(VueRouter)
 
 const routes = [
-  {
+    {
     path: '/',
     name: 'avalehtRoute',
     component: AvalehtView

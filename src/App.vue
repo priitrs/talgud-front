@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <br>
-    <div v-if="!isLoggedIn" class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <div v-if="!loginStatus" class="d-grid gap-2 d-md-flex justify-content-md-end">
       <button v-on:click="$router.push({name: 'loginRoute'})" class="btn btn-primary me-md-2">Logi sisse</button>
     </div>
-    <div v-if="isLoggedIn" class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <div v-if="loginStatus" class="d-grid gap-2 d-md-flex justify-content-md-end">
       <button v-on:click="logOut" class="btn btn-primary me-md-2">Logi välja</button>
     </div>
 
@@ -26,23 +26,23 @@
           </a>
         </li>
 
-        <li class="nav-item" v-if="isLoggedIn">
+        <li class="nav-item" v-if="loginStatus">
           <a class="nav-link" href="#">
             <router-link to="/uued">Lisa uued Talgud</router-link>
           </a>
         </li>
-        <li class="nav-item" v-if="isLoggedIn">
+        <li class="nav-item" v-if="loginStatus">
           <a class="nav-link" href="#">
             <router-link to="/minu">Minu Talgud</router-link>
           </a>
         </li>
 
-        <li class="nav-item" v-if="!isLoggedIn">
+        <li class="nav-item" v-if="!loginStatus">
           <a class="nav-link">
             <router-link to="/login">Lisa uued Talgud</router-link>
           </a>
         </li>
-        <li class="nav-item" v-if="!isLoggedIn">
+        <li class="nav-item" v-if="!loginStatus">
           <a class="nav-link" href="#">
             <router-link to="/login">Minu Talgud</router-link>
           </a>
@@ -59,18 +59,20 @@ export default {
 
   data: function () {
     return {
-      isLoggedIn: false
+      loginStatus: "",
     }
   },
   methods: {
     isLoggedIn: function () {
       if (sessionStorage.getItem('userId') != null) {
-        this.isLoggedIn = true
+        this.loginStatus = true
+      } else {
+        this.loginStatus = false
       }
     },
     logOut: function () {
       sessionStorage.clear()
-      this.isLoggedIn = false
+      this.loginStatus = false
       this.$router.push({name: 'avalehtRoute'})
     }
   },

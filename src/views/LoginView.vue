@@ -1,9 +1,9 @@
 <template>
   <div>
-      <input type="text" v-model="username" placeholder="Kasutajanimi" >
-<br>
-    <input type="text" v-model="password" placeholder="Parool" >
-<br>
+    <input type="text" v-model="username" placeholder="Kasutajanimi">
+    <br>
+    <input type="text" v-model="password" placeholder="Parool">
+    <br>
     <div class="d-grid gap-2 d-md-flex">
       <button v-on:click="loginRequest" class="btn btn-primary me-md-2">Logi sisse</button>
     </div>
@@ -16,23 +16,24 @@ export default {
   name: "LoginView",
   data: function () {
     return {
-      username:"",
+      username: "",
       password: "",
-      userId: null
+      userId: null,
+      lastRoute: ""
     }
   },
-  methods:{
+  methods: {
     loginRequest: function () {
-      this.$http.post('/authentication/exists', {
-        params: {
-          username: this.username,
-          password: this.password
-        }
-      })
+      let user = {
+        username: this.username,
+        password: this.password
+      }
+      this.$http.post('/authentication/exists', user)
           .then(response => {
             this.userId = response.data
             sessionStorage.setItem('userId', this.userId)
-            this.$router.push({name: 'avalehtRoute'})
+            this.lastRoute = sessionStorage.getItem('lastRoute')
+            this.$router.push({name: this.lastRoute})
           })
           .catch(error => console.log(error.response.data))
 

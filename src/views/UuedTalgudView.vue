@@ -1,5 +1,7 @@
 <template>
-
+<div>
+  Lisa uued Talgud
+</div>
 </template>
 
 <script>

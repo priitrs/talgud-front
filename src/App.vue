@@ -1,12 +1,11 @@
 <template>
   <div id="app">
     <br>
-    <div v-if="!loginStatus" class="d-grid gap-2 d-md-flex justify-content-md-end">
-      <button v-on:click="$router.push({name: 'loginRoute'})" class="btn btn-primary me-md-2">Logi sisse</button>
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button v-on:click="loginButtonAction" class="btn btn-primary me-md-2">{{ loginButtonText }}</button>
     </div>
-    <div v-if="loginStatus" class="d-grid gap-2 d-md-flex justify-content-md-end">
-      <button v-on:click="logOut" class="btn btn-primary me-md-2">Logi välja</button>
-    </div>
+
 
     <nav>
       <ul class="nav justify-content-center">
@@ -26,25 +25,14 @@
           </a>
         </li>
 
-        <li class="nav-item" v-if="loginStatus">
+        <li class="nav-item" v-on:click="lisaUuedTalgud">
           <a class="nav-link" href="#">
-            <router-link to="/uued">Lisa uued Talgud</router-link>
+            Lisa uued Talgud
           </a>
         </li>
-        <li class="nav-item" v-if="loginStatus">
+        <li class="nav-item" v-on:click="minuTalgud">
           <a class="nav-link" href="#">
-            <router-link to="/minu">Minu Talgud</router-link>
-          </a>
-        </li>
-
-        <li class="nav-item" v-if="!loginStatus">
-          <a class="nav-link">
-            <router-link to="/login">Lisa uued Talgud</router-link>
-          </a>
-        </li>
-        <li class="nav-item" v-if="!loginStatus">
-          <a class="nav-link" href="#">
-            <router-link to="/login">Minu Talgud</router-link>
+            Minu Talgud
           </a>
         </li>
 
@@ -59,26 +47,47 @@ export default {
 
   data: function () {
     return {
-      loginStatus: "",
+      loginButtonText: ""
     }
   },
   methods: {
-    isLoggedIn: function () {
-      if (sessionStorage.getItem('userId') != null) {
-        this.loginStatus = true
+    lisaUuedTalgud: function () {
+      if (sessionStorage.getItem('userId') > 0) {
+        this.$router.push({name: 'lisaRoute'})
       } else {
-        this.loginStatus = false
+        sessionStorage.setItem('lastRoute', 'lisaRoute')
+        this.$router.push({name: 'loginRoute'})
       }
     },
-    logOut: function () {
-      sessionStorage.clear()
-      this.loginStatus = false
-      this.$router.push({name: 'avalehtRoute'})
+    minuTalgud: function () {
+      if (sessionStorage.getItem('userId') > 0) {
+        this.$router.push({name: 'minuRoute'})
+      } else {
+        sessionStorage.setItem('lastRoute', 'minuRoute')
+        this.$router.push({name: 'loginRoute'})
+      }
+    },
+    loginButton: function () {
+      if (sessionStorage.getItem('userId') > 0) {
+        this.loginButtonText = "Logi välja"
+      } else {
+        this.loginButtonText = "Logi sisse"
+      }
+    },
+    loginButtonAction: function () {
+      if (sessionStorage.getItem('userId') > 0) {
+        sessionStorage.clear()
+        this.$router.push({name: 'avalehtRoute'})
+      } else {
+        sessionStorage.setItem('lastRoute', 'avalehtRoute')
+        this.$router.push({name: 'loginRoute'})
+      }
     }
+
   },
 
   mounted() {
-    this.isLoggedIn()
+    this.loginButton()
   }
 }
 

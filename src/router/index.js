@@ -33,6 +33,16 @@ const routes = [
     component: TalgudLisainfoView
   },
   {
+    path: '/lisa',
+    name: 'lisaRoute',
+    component: UuedTalgudView
+  },
+  {
+    path: '/minu',
+    name: 'minuRoute',
+    component: MinuTalgudView
+  },
+  {
     path: '/login',
     name: 'loginRoute',
     component: LoginView

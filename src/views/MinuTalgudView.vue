@@ -1,5 +1,7 @@
 <template>
-
+<div>
+  Minu Talgud
+</div>
 </template>
 
 <script>

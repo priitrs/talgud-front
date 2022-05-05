@@ -8,6 +8,7 @@ import UuedTalgudView from "@/views/UuedTalgudView";
 import MinuTalgudView from "@/views/MinuTalgudView";
 import LoginView from "@/views/LoginView";
 import RegistrationView from "@/views/RegistrationView";
+import PlanningView from "@/views/PlanningView";
 
 Vue.use(VueRouter)
 
@@ -31,6 +32,11 @@ const routes = [
     path: '/lisainfo',
     name: 'lisainfoRoute',
     component: TalgudLisainfoView
+  },
+  {
+    path: '/planning',
+    name: 'planningRoute',
+    component: PlanningView
   },
   {
     path: '/lisa',

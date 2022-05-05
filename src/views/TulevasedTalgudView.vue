@@ -48,6 +48,7 @@ export default {
     navigateToTalgudLisainfo: function (project) {
 
       sessionStorage.setItem('project',JSON.stringify(project))
+      sessionStorage.setItem('lastRoute', 'tulevasedRoute')
       this.$router.push({name: 'lisainfoRoute'})
     },
   },

@@ -18,7 +18,7 @@
 
       <tbody>
       <tr v-for="task in tasks">
-        <td >{{task.name}}</td>
+        <td>{{ task.name }}</td>
         <td>{{ task.userId }}</td>
       </tr>
       </tbody>
@@ -30,11 +30,16 @@
     <!--  <img  class="rounded float" v-for="picture in pictures" :src="'data:image/jpeg;base64,'+picture.data" style="height: 300px"/>-->
     <!--</div>-->
 
-        <div id="galerii">
-          <img class="image" v-for="(picture, i) in pictures" :src="picture" :key="i"
-               @click="index = i" style="height: 200px">
-          <vue-gallery-slideshow :images="pictures" :index="index" @close="index = null"></vue-gallery-slideshow>
-        </div>
+    <div id="galerii">
+      <img class="image" v-for="(picture, i) in pictures" :src="picture" :key="i"
+           @click="index = i" style="height: 200px">
+      <vue-gallery-slideshow :images="pictures" :index="index" @close="index = null"></vue-gallery-slideshow>
+    </div>
+    <br>
+
+    <div v-if="showOsalenButton" class="d-grid gap-2 d-md-flex">
+      <button v-on:click="osalenButtonAction" class="btn btn-primary me-md-2">OSALEN</button>
+    </div>
 
   </div>
 </template>
@@ -53,7 +58,8 @@ export default {
       picturesTemp: {},
       project: JSON.parse(sessionStorage.getItem('project')),
       pictures: [],
-      index: null
+      index: null,
+      showOsalenButton: false
     }
   },
 
@@ -83,11 +89,29 @@ export default {
             }
           })
           .catch(error => console.log(error.response.data))
+    },
+    showOsalenButtonValue: function () {
+      if (sessionStorage.getItem('lastRoute') == 'tulevasedRoute') {
+        this.showOsalenButton = true
+      }
+    },
+    osalenButtonAction: function () {
+      if(sessionStorage.getItem('userId') > 0){
+        this.$http.post('/project-user',null, {
+          params: {
+            projectId: this.project.id,
+            userId: sessionStorage.getItem('userId'),
+          }})
+        this.$router.push({name: 'planningRoute'})
+      } else {
+        this.$router.push({name: 'loginRoute'})
+      }
     }
   },
   mounted() {
     this.getAllTasksForProject()
     this.getAllPictures()
+    this.showOsalenButtonValue()
   },
 
 }

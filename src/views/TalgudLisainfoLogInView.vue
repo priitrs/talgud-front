@@ -25,25 +25,10 @@
     </table>
 
     <br>
-    <br>
-    <br>
 
-    <table class="table">
-      <thead>
-      <tr>
-        <th scope="col">Resource nimi</th>
-        <th scope="col">Vastutaja</th>
-      </tr>
-      </thead>
-
-      <tbody>
-      <tr v-for="resource in resources">
-        <td>{{ resource.name }}</td>
-        <td>{{ resource.userId }}</td>
-      </tr>
-      </tbody>
-    </table>
-
+    <!--<div class="img-thumbnail">-->
+    <!--  <img  class="rounded float" v-for="picture in pictures" :src="'data:image/jpeg;base64,'+picture.data" style="height: 300px"/>-->
+    <!--</div>-->
 
     <div id="galerii">
       <img class="image" v-for="(picture, i) in pictures" :src="picture" :key="i"
@@ -52,23 +37,29 @@
     </div>
     <br>
 
+    <div v-if="showManageButton" class="d-grid gap-2 d-md-flex">
+      <button v-on:click="manageButtonAction" class="btn btn-primary me-md-2">Redigeeri</button>
+    </div>
+
   </div>
 </template>
 
+
 <script>
+
 export default {
-  name: "PlanningView",
+  name: "TalgudLisainfoView",
 
   components: {VueGallerySlideshow},
 
   data: function () {
     return {
       tasks: {},
-      resources: {},
       picturesTemp: {},
       project: JSON.parse(sessionStorage.getItem('project')),
       pictures: [],
-      index: null
+      index: null,
+      showManageButton: false,
     }
   },
 
@@ -84,18 +75,6 @@ export default {
           })
           .catch(error => console.log(error.response.data))
     },
-    getAllResourcesForProject: function () {
-      this.$http.get('/resource', {
-        params: {
-          projectId: this.project.projectId
-        }
-      })
-          .then(response => {
-            this.resources = response.data
-          })
-          .catch(error => console.log(error.response.data))
-    },
-
     getAllPictures: function () {
       this.$http.get('/picture', {
         params: {
@@ -111,15 +90,23 @@ export default {
           .catch(error => console.log(error.response.data))
     },
 
-    mounted() {
-      this.getAllTasksForProject()
-      this.getAllResourcesForProject()
-      this.getAllPictures()
+    showManageButtonValue: function () {
+      if (this.project.isModerator) {
+        this.showManageButton = true
+      }
     },
-  }
+    manageButtonAction: function () {
+      this.$router.push({name: 'planningRoute'})
+    }
+  },
+  mounted() {
+    this.getAllTasksForProject()
+    this.getAllPictures()
+    this.showManageButtonValue()
+  },
+
 }
+
 </script>
 
-<style scoped>
 
-</style>

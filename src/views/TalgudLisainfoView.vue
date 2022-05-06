@@ -11,7 +11,7 @@
     <table class="table">
       <thead>
       <tr>
-        <th scope="col">Taski nimi</th>
+        <th scope="col">Ülesanded</th>
         <th scope="col">Vastutaja</th>
       </tr>
       </thead>
@@ -29,6 +29,7 @@
     <!--<div class="img-thumbnail">-->
     <!--  <img  class="rounded float" v-for="picture in pictures" :src="'data:image/jpeg;base64,'+picture.data" style="height: 300px"/>-->
     <!--</div>-->
+
 
     <div id="galerii">
       <img class="image" v-for="(picture, i) in pictures" :src="picture" :key="i"

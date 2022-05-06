@@ -11,7 +11,7 @@
     <table class="table">
       <thead>
       <tr>
-        <th scope="col">Taski nimi</th>
+        <th scope="col">Ülesanded</th>
         <th scope="col">Vastutaja</th>
       </tr>
       </thead>

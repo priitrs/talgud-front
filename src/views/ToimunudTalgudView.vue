@@ -1,5 +1,8 @@
 <template>
   <div>
+    <div class="container">
+      <div class="row">
+        <div class="col-">
     <br>
     <table class="table">
       <thead>
@@ -26,12 +29,17 @@
 
 
     </table>
-  </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
 </template>
 
 <script>
+
 export default {
-  name: "ToimunudTalgudView",
+  ProjectName: "ToimunudTalgudView",
   data: function () {
     return {
       // project: {},
@@ -60,9 +68,10 @@ export default {
   }
 
 
+
 }
 </script>
 
-<!--<style scoped>-->
+<style scoped>
 
-<!--</style>-->
+</style>

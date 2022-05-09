@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <br>
-
+    <div class="container">
+      <div class="row">
+        <div class="col-">
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
       <button v-on:click="loginButtonAction" class="btn btn-primary me-md-2">{{ loginButtonText }}</button>
     </div>
@@ -40,10 +42,20 @@
     </nav>
 
     <router-view/>
+    <AddGoogleMap/>
+  </div>
+  </div>
+  </div>
   </div>
 </template>
 <script>
+import AddGoogleMap from "./components/AddGoogleMap";
+
 export default {
+  name: 'App',
+  components: {
+    AddGoogleMap
+  },
 
   data: function () {
     return {
@@ -99,5 +111,14 @@ export default {
 
 nav a.router-link-exact-active {
   color: #42b983;
+}
+
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #000000;
+  margin-top: 50px;
 }
 </style>

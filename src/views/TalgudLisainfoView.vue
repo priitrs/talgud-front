@@ -26,11 +26,6 @@
 
     <br>
 
-    <!--<div class="img-thumbnail">-->
-    <!--  <img  class="rounded float" v-for="picture in pictures" :src="'data:image/jpeg;base64,'+picture.data" style="height: 300px"/>-->
-    <!--</div>-->
-
-
     <div id="galerii">
       <img class="image" v-for="(picture, i) in pictures" :src="picture" :key="i"
            @click="index = i" style="height: 200px">
@@ -86,7 +81,7 @@ export default {
             this.picturesTemp = response.data
             for (let i = 0; i < this.picturesTemp.length; i++) {
 
-              this.pictures.push('data:image/jpeg;base64,' + this.picturesTemp[i].data)
+              this.pictures.push(this.picturesTemp[i].data)
             }
           })
           .catch(error => console.log(error.response.data))

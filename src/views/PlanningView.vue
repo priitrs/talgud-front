@@ -60,19 +60,24 @@
 
     <br>
 
-<!--      <div class="input-group mb-3">-->
-<!--        <button class="btn btn-primary me-md-2" type="button" id="inputGroupFileAddon03">Lae üles</button>-->
-<!--        <input type="file" @change="handleImage" accept="image/x-png,image/jpeg" class="form-control" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03" aria-label="Upload">-->
-<!--      </div>-->
+    <div class="input-group mb-3">
+      <button v-on:click="addNewPicture" class="btn btn-primary me-md-2" type="button" id="inputGroupFileAddon03">Lae
+        üles
+      </button>
+      <input type="file" @change="handleImage" accept="image/x-png,image/jpeg" class="form-control"
+             id="inputGroupFile03" aria-describedby="inputGroupFileAddon03" aria-label="Upload">
+    </div>
 
-
-
+    <br>
     <div id="galerii">
       <img class="image" v-for="(picture, i) in pictures" :src="picture" :key="i"
            @click="index = i" style="height: 200px">
       <vue-gallery-slideshow :images="pictures" :index="index" @close="index = null"></vue-gallery-slideshow>
     </div>
     <br>
+    <div class="d-grid gap-2 d-md-flex">
+      <button v-on:click="backToLisainfo" class="btn btn-primary me-md-2">Tagasi</button>
+    </div>
 
   </div>
 </template>
@@ -98,11 +103,40 @@ export default {
       resources: {},
       picturesTemp: {},
       pictures: [],
+      pictureExport: {},
       index: null
     }
   },
 
   methods: {
+    handleImage(event) {
+      const selectedImage = event.target.files[0];
+      this.createBase64Image(selectedImage);
+    },
+    createBase64Image(fileObject) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.pictureExport.data = reader.result;
+        console.log(this.pictureExport.data)
+      };
+      reader.onerror = function (error) {
+        alert(error);
+      }
+      reader.readAsDataURL(fileObject);
+    },
+
+    addNewPicture: function () {
+      let pictureRequest = {
+        projectId: this.project.projectId,
+        data: this.pictureExport.data
+      }
+      this.$http.post("/picture", pictureRequest
+      ).then(response => {
+        this.getAllPictures()
+      }).catch(error => {
+        console.log(error)
+      })
+    },
     getAllTasksForProject: function () {
       this.$http.get('/task', {
         params: {
@@ -155,7 +189,7 @@ export default {
       ).then(response => {
         console.log(response.data)
         this.getAllResourcesForProject()
-
+        this.$router.push({name: 'planningRoute'})
       }).catch(error => {
         console.log(error)
       })
@@ -182,15 +216,18 @@ export default {
       })
           .then(response => {
             this.picturesTemp = response.data
+            this.pictures = []
             for (let i = 0; i < this.picturesTemp.length; i++) {
-              this.pictures.push('data:image/jpeg;base64,' + this.picturesTemp[i].data)
+              this.pictures.push(this.picturesTemp[i].data)
             }
           })
           .catch(error => console.log(error.response.data))
     },
+    backToLisainfo: function () {
+      this.$router.push({name: 'lisainfoLogInRoute'})
+    },
   },
   mounted() {
-    console.log("mounted algus")
     this.getAllTasksForProject()
     this.getAllResourcesForProject()
     this.getAllPictures()

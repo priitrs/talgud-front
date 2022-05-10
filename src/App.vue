@@ -45,14 +45,17 @@
         </div>
       </div>
     </div>
+<!--    <DrawGoogleMap />-->
   </div>
 </template>
 <script>
-
+// import DrawGoogleMap from "./components/DrawGoogleMap";
 
 export default {
   name: 'App',
-
+  // components: {
+  //   DrawGoogleMap
+  // },
 
   data: function () {
     return {
@@ -109,6 +112,13 @@ export default {
 nav a.router-link-exact-active {
   color: #42b983;
 }
-
+/*#app {*/
+/*  font-family: Avenir, Helvetica, Arial, sans-serif;*/
+/*  -webkit-font-smoothing: antialiased;*/
+/*  -moz-osx-font-smoothing: grayscale;*/
+/*  text-align: center;*/
+/*  color: #000000;*/
+/*  margin-top: 50px;*/
+/*}*/
 
 </style>

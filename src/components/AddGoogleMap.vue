@@ -4,7 +4,7 @@
       <h5>Lisa siia oma asukoht</h5>
       <label>
         <gmap-autocomplete @place_changed="initMarker"></gmap-autocomplete>
-        <button @click="addLocationMarker">Lisa</button>
+        <button @click="addLocationMarker">Add</button>
       </label>
       <br/>
 

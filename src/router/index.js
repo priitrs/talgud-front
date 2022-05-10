@@ -9,7 +9,6 @@ import MinuTalgudView from "@/views/MinuTalgudView";
 import LoginView from "@/views/LoginView";
 import RegistrationView from "@/views/RegistrationView";
 import PlanningView from "@/views/PlanningView";
-import talgudLisainfoLogInView from "@/views/TalgudLisainfoLogInView";
 import TalgudLisainfoLogInView from "@/views/TalgudLisainfoLogInView";
 
 Vue.use(VueRouter)
@@ -64,8 +63,7 @@ const routes = [
     path: '/registration',
     name: 'registrationRoute',
     component: RegistrationView
-  }
-
+  },
 ]
 
 const router = new VueRouter({

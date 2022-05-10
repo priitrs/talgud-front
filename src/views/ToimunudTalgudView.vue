@@ -1,8 +1,6 @@
 <template>
   <div>
-    <div class="container">
-      <div class="row">
-        <div class="col-">
+
     <br>
     <table class="table">
       <thead>
@@ -29,10 +27,8 @@
 
 
     </table>
-    </div>
-    </div>
-    </div>
-    </div>
+  </div>
+
 
 </template>
 
@@ -40,7 +36,7 @@
 
 
 export default {
-  ProjectName: "ToimunudTalgudView",
+  name: "ToimunudTalgudView",
   data: function () {
     return {
       // project: {},
@@ -69,17 +65,9 @@ export default {
   }
 
 
-
 }
 </script>
 
 <style scoped>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #000000;
-  margin-top: 50px;
-}
+
 </style>

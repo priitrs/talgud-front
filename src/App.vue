@@ -4,58 +4,55 @@
     <div class="container">
       <div class="row">
         <div class="col-">
-    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-      <button v-on:click="loginButtonAction" class="btn btn-primary me-md-2">{{ loginButtonText }}</button>
+          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button v-on:click="loginButtonAction" class="btn btn-primary me-md-2">{{ loginButtonText }}</button>
+          </div>
+
+
+          <nav>
+            <ul class="nav justify-content-center">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">
+                  <router-link to="/">Avaleht</router-link>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <router-link to="/toimunud">Toimunud Talgud</router-link>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <router-link to="/tulevased">Tulevased Talgud</router-link>
+                </a>
+              </li>
+
+              <li class="nav-item" v-on:click="lisaUuedTalgud">
+                <a class="nav-link" href="#">
+                  Lisa uued Talgud
+                </a>
+              </li>
+              <li class="nav-item" v-on:click="minuTalgud">
+                <a class="nav-link" href="#">
+                  Minu Talgud
+                </a>
+              </li>
+
+            </ul>
+          </nav>
+
+          <router-view/>
+        </div>
+      </div>
     </div>
-
-
-    <nav>
-      <ul class="nav justify-content-center">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">
-            <router-link to="/">Avaleht</router-link>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <router-link to="/toimunud">Toimunud Talgud</router-link>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <router-link to="/tulevased">Tulevased Talgud</router-link>
-          </a>
-        </li>
-
-        <li class="nav-item" v-on:click="lisaUuedTalgud">
-          <a class="nav-link" href="#">
-            Lisa uued Talgud
-          </a>
-        </li>
-        <li class="nav-item" v-on:click="minuTalgud">
-          <a class="nav-link" href="#">
-            Minu Talgud
-          </a>
-        </li>
-
-      </ul>
-    </nav>
-
-    <router-view/>
-    <AddGoogleMap/>
-  </div>
-  </div>
-  </div>
   </div>
 </template>
 <script>
-import AddGoogleMap from "./components/AddGoogleMap";
+
 
 export default {
   name: 'App',
-  components: {
-    AddGoogleMap
-  },
+
 
   data: function () {
     return {
@@ -113,12 +110,5 @@ nav a.router-link-exact-active {
   color: #42b983;
 }
 
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #000000;
-  margin-top: 50px;
-}
+
 </style>

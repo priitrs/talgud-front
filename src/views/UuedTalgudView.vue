@@ -37,7 +37,7 @@ export default {
       endTime: "",
       longitude: "",
       latitude: "",
-      project: {}
+      // project: {}
     }
   },
 
@@ -55,15 +55,15 @@ export default {
         longitude: this.longitude,
         latitude: this.latitude
       }
-      this.$http.post('/project',project,{
-        params:{
-          userId:sessionStorage.getItem("userId")
+      this.$http.post('/project', project, {
+        params: {
+          userId: sessionStorage.getItem("userId")
         }
       })
           .then(response => {
             this.project = response.data
-            sessionStorage.setItem('project', this.project)
-            // this.$router.push({name: this.lastRoute})
+            sessionStorage.setItem('project', JSON.stringify(response.data))
+            this.$router.push({name: 'planningRoute'})
           })
           .catch(error => console.log(error.response.data))
     }

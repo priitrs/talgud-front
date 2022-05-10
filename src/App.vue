@@ -1,9 +1,5 @@
 <template>
   <div id="app">
-    <br>
-    <div class="container">
-      <div class="row">
-        <div class="col-">
           <div class="d-grid gap-2 d-md-flex justify-content-md-end">
             <button v-on:click="loginButtonAction" class="btn btn-primary me-md-2">{{ loginButtonText }}</button>
           </div>
@@ -43,9 +39,7 @@
 
           <router-view/>
         </div>
-      </div>
-    </div>
-  </div>
+
 </template>
 <script>
 

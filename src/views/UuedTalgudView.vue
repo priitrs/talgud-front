@@ -19,7 +19,7 @@
     <input type="text" v-model="latitude" placeholder="latitude">
     <br>
     <br>
-    <div class="d-grid gap-2 d-md-flex">
+    <div class="d-grid gap-2 mx-auto">
       <button v-on:click="addNewProjectUser" class="btn btn-primary me-md-2">Loo uued talgud</button>
     </div>
   </div>

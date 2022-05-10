@@ -1,15 +1,15 @@
 <template>
   <div>
     <div>
-      <h5>Lisa siia oma asukoht</h5>
+      <br>
       <label>
         <gmap-autocomplete @place_changed="initMarker"></gmap-autocomplete>
-        <button @click="addLocationMarker">Lisa</button>
+        <button @click="addLocationMarker">Otsi talguid</button>
       </label>
-      <br/>
+
 
     </div>
-    <br>
+
     <gmap-map
         :zoom="14"
         :center="center"

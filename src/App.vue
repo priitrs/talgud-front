@@ -1,27 +1,28 @@
 <template>
   <div id="app">
-          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <button v-on:click="loginButtonAction" class="btn btn-primary me-md-2">{{ loginButtonText }}</button>
-          </div>
+    <br>
+    <br>
 
+    <nav class="navbar navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">
+      </a>
 
-          <nav>
-            <ul class="nav justify-content-center">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">
-                  <router-link to="/">Avaleht</router-link>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <router-link to="/toimunud">Toimunud Talgud</router-link>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <router-link to="/tulevased">Tulevased Talgud</router-link>
-                </a>
-              </li>
+      <ul class="nav justify-content-left">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">
+            <router-link to="/">Avaleht</router-link>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <router-link to="/toimunud">Toimunud Talgud</router-link>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <router-link to="/tulevased">Tulevased Talgud</router-link>
+          </a>
+        </li>
 
               <li class="nav-item" v-on:click="lisaUuedTalgud">
                 <a class="nav-link" href="#">
@@ -34,16 +35,18 @@
                 </a>
               </li>
 
-            </ul>
-          </nav>
+      </ul>
 
-          <router-view/>
-        </div>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button type="button" class="btn btn-light">Logi sisse</button>
+      </div>
 
+    </nav>
+
+    <router-view/>
+  </div>
 </template>
 <script>
-
-
 export default {
   name: 'App',
 
@@ -100,9 +103,17 @@ export default {
 
 <style>
 
-nav a.router-link-exact-active {
-  color: #42b983;
+#app {
+  font-family: var(--mdc-typography-font-family,Roboto,sans-serif);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #FFFFFF;
+  font-size: 18px;
+
 }
 
-
+nav a.router-link-exact-active {
+  color: #FFFFFF;
+}
 </style>

@@ -18,6 +18,7 @@
             crossorigin="anonymous"></script>
     <script src="https://unpkg.com/vue-gallery-slideshow"></script>
     <title><%= htmlWebpackPlugin.options.title %></title>
+
 </head>
 <body>
 <noscript>
@@ -25,6 +26,15 @@
         Please enable it to continue.</strong>
 </noscript>
 <div id="app"></div>
+
 <!-- built files will be auto injected -->
 </body>
+<style>
+    body {
+        background-image: url(back.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+</style>
 </html>

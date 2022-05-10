@@ -30,7 +30,7 @@
           </table>
         </div>
         <div class="col">
-          <AddGoogleMap/>
+          <DrawGoogleMap/>
         </div>
       </div>
     </div>
@@ -39,12 +39,13 @@
 </template>
 
 <script>
-import AddGoogleMap from "@/components/AddGoogleMap";
+
+import DrawGoogleMap from "@/components/DrawGoogleMap";
 
 export default {
   name: "TulevasedTalgudView",
   components: {
-    AddGoogleMap
+    DrawGoogleMap
   },
   data: function () {
     return {
@@ -63,7 +64,7 @@ export default {
     },
     navigateToTalgudLisainfo: function (project) {
 
-      sessionStorage.setItem('project', JSON.stringify(project))
+      sessionStorage.setItem('project',JSON.stringify(project))
       sessionStorage.setItem('lastRoute', 'tulevasedRoute')
       this.$router.push({name: 'lisainfoRoute'})
     },
@@ -76,7 +77,7 @@ export default {
 }
 </script>
 
-<style>
+<style >
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

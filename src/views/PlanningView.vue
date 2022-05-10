@@ -19,6 +19,7 @@
         <th scope="col">Kustuta</th>
         <th scope="col">Ülesanded</th>
         <th scope="col">Vastutaja</th>
+        <th scope="col"></th>
       </tr>
       </thead>
       <tbody>
@@ -27,7 +28,20 @@
           <button v-on:click="deleteTask(task.id)" type="button" class="btn btn-outline-danger btn-sm">X</button>
         </td>
         <td>{{ task.name }}</td>
-        <td>{{ task.userId }}</td>
+        <td>{{ task.contactFirstName }} {{ task.contactLastName }}</td>
+        <td>
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Määra uus
+            </button>
+            <div class="dropdown-menu"
+                 aria-labelledby="dropdownMenuButton">
+              <a v-on:click="updateTask(task.id, null)" class="dropdown-item" href="#">Eemalda</a>
+              <a v-on:click="updateTask(task.id, contact.userId)" v-for="contact in contacts" class="dropdown-item" href="#">{{ contact.contactFirstName }} {{ contact.contactLastName }}</a>
+            </div>
+          </div>
+        </td>
       </tr>
       </tbody>
     </table>
@@ -104,7 +118,8 @@ export default {
       picturesTemp: {},
       pictures: [],
       pictureExport: {},
-      index: null
+      index: null,
+      contacts: {}
     }
   },
 
@@ -151,6 +166,19 @@ export default {
 
     addTask: function () {
       this.$http.post("/task", this.newTask
+      ).then(response => {
+        console.log(response.data)
+        this.getAllTasksForProject()
+
+      }).catch(error => {
+        console.log(error)
+      })
+    },
+    updateTask: function (taskId, taskUserId) {
+      this.$http.put("/task", {
+            id: taskId,
+            userId: taskUserId
+          }
       ).then(response => {
         console.log(response.data)
         this.getAllTasksForProject()
@@ -226,11 +254,23 @@ export default {
     backToLisainfo: function () {
       this.$router.push({name: 'lisainfoLogInRoute'})
     },
+    getAllProjectContacts: function () {
+      this.$http.get('/user-project', {
+        params: {
+          projectId: this.project.projectId
+        }
+      })
+          .then(response => {
+            this.contacts = response.data
+          })
+          .catch(error => console.log(error.response.data))
+    }
   },
   mounted() {
     this.getAllTasksForProject()
     this.getAllResourcesForProject()
     this.getAllPictures()
+    this.getAllProjectContacts()
   },
 }
 </script>

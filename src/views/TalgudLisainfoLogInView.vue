@@ -19,10 +19,7 @@
       <tbody>
       <tr v-for="task in tasks">
         <td>{{ task.name }}</td>
-        <td>
-<!--          {{ task.userId }}-->
-
-        </td>
+        <td>{{ task.contactFirstName }} {{ task.contactLastName }}</td>
       </tr>
       </tbody>
     </table>
@@ -63,7 +60,7 @@ export default {
       pictures: [],
       index: null,
       showManageButton: false,
-      contacts: {}
+
     }
   },
 
@@ -102,23 +99,13 @@ export default {
     manageButtonAction: function () {
       this.$router.push({name: 'planningRoute'})
     },
-    getAllProjectContacts: function () {
-      this.$http.get('/user-project', {
-        params: {
-          projectId: this.project.projectId
-        }
-      })
-          .then(response => {
-            this.contacts = response.data
-          })
-          .catch(error => console.log(error.response.data))
-    }
+
   },
   mounted() {
     this.getAllTasksForProject()
     this.getAllPictures()
     this.showManageButtonValue()
-    this.getAllProjectContacts()
+
   },
 
 }

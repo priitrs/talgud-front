@@ -32,7 +32,8 @@
           </table>
         </div>
         <div class="col">
-          <AddGoogleMap/>
+          <br>
+          <DrawGoogleMap/>
         </div>
       </div>
     </div>
@@ -44,12 +45,13 @@
 <script>
 
 
-import AddGoogleMap from "@/components/AddGoogleMap";
+
+import DrawGoogleMap from "@/components/DrawGoogleMap";
 
 export default {
   name: "ToimunudTalgudView",
   components: {
-    AddGoogleMap
+    DrawGoogleMap
   },
   data: function () {
     return {

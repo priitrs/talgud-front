@@ -1,9 +1,6 @@
 <template>
   <div id="app">
-    <br>
-    <br>
-
-    <nav class="navbar navbar-dark bg-dark">
+     <nav class="navbar navbar-dark bg-dark">
       <a class="navbar-brand" href="#">
       </a>
 

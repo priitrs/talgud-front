@@ -4,7 +4,7 @@
     <input type="text" v-model="username" placeholder="Kasutajanimi">
     <br>
     <br>
-    <input type="text" v-model="password" placeholder="Parool">
+    <input type="password" v-model="password" placeholder="Parool">
     <br>
     <br>
     <div class="d-grid gap-2 mx-autp">

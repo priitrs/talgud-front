@@ -31,7 +31,8 @@
           </table>
         </div>
         <div class="col">
-          <AddGoogleMap/>
+          <br>
+          <DrawGoogleMap/>
         </div>
       </div>
     </div>
@@ -39,12 +40,13 @@
 </template>
 
 <script>
-import AddGoogleMap from "@/components/AddGoogleMap";
+
+import DrawGoogleMap from "@/components/DrawGoogleMap";
 
 export default {
   name: "MinuTalgudView",
   components: {
-    AddGoogleMap
+    DrawGoogleMap
   },
   data: function () {
     return {

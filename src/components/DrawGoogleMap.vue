@@ -3,8 +3,8 @@
 
     <gmap-map
         :center="center"
-        :zoom="10"
-        style="width:100%;  height: 555px;">
+        :zoom="7"
+        style="width:97%;  height: 600px;">
       <gmap-marker
           :key="index"
           v-for="(gmp, index) in locations"
@@ -22,8 +22,8 @@ export default {
   data() {
     return {
       center: {
-        lat: 39.7837304,
-        lng: -100.4458825
+        lat: 58.887858,
+        lng: 25.541171
       },
       locations: [],
       currentLocation: null
@@ -39,12 +39,15 @@ export default {
       this.currentLocation = loc;
     },
     setLocationLatLng: function() {
-      navigator.geolocation.getCurrentPosition(geolocation => {
-        this.center = {
-          lat: geolocation.coords.latitude,
-          lng: geolocation.coords.longitude
-        };
-      });
+      lat:58.887858
+          lng: 25.541171
+      // navigator.geolocation.getCurrentPosition(geolocation => {
+      //   this.center = {
+      //     lat: geolocation.coords.latitude,
+      //     lng: geolocation.coords.longitude,
+      //   };
+      // })
+;
 
       this.locations = [
         {

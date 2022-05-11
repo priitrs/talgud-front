@@ -2,7 +2,7 @@
   <div>
     <div class="container-md">
       <div class="row justify-content-center">
-        <div class="col-5">
+        <div class="col-6">
           <br>
           <br>
           <br>

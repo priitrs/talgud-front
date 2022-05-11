@@ -1,10 +1,13 @@
 <template>
   <div>
+    <br>
     {{ project.projectName }}
     <br>
-    {{ project.projectAddress }}
+    Asukoht: {{ project.projectAddress }}
     <br>
-    {{ project.projectStartTime }}
+    Algus: {{ project.projectStartTime }}
+    <br>
+    Lõpp: {{ project.projectEndTime }}
     <br>
     <br>
     <div class="container-md">
@@ -140,5 +143,9 @@ export default {
 }
 
 </script>
-
+<style>
+.col-4,.col-3 {
+  background-color: white;
+}
+</style>
 

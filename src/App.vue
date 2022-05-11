@@ -37,8 +37,8 @@
 
       </ul>
 
-      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-        <button type="button" class="btn btn-light">Logi sisse</button>
+      <div v-on:click="loginButtonAction" class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button type="button" class="btn btn-light">{{ loginButtonText }}</button>
       </div>
 
     </nav>

@@ -1,10 +1,13 @@
 <template>
   <div>
+    <br>
     <input type="text" v-model="username" placeholder="Kasutajanimi">
+    <br>
     <br>
     <input type="text" v-model="password" placeholder="Parool">
     <br>
-    <div class="d-grid gap-2 d-md-flex">
+    <br>
+    <div class="d-grid gap-2 mx-autp">
       <button v-on:click="loginRequest" class="btn btn-primary me-md-2">Logi sisse</button>
     </div>
   </div>

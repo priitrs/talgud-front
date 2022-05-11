@@ -30,6 +30,7 @@
           </table>
         </div>
         <div class="col">
+          <br><br><br>
           <DrawGoogleMap/>
         </div>
       </div>

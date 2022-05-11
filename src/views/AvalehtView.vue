@@ -1,7 +1,7 @@
 <template>
 
 <div>
-  <br><br><br><br><br><br><br><br><br><br><br><br>
+  <br><br><br><br><br><br><br><br><br>
 
   <p class="ml13">VIIME KOKKU VABATAHTLIKUD ÜHISE EESMÄRGI SAAVUTAMISE NIMEL.</p>
 

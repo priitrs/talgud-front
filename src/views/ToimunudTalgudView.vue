@@ -2,7 +2,7 @@
   <div>
     <div class="container-md">
       <div class="row justify-content-center">
-        <div class="col-5">
+        <div class="col-6">
 
           <br>
           <br>
@@ -55,15 +55,24 @@ export default {
   },
   data: function () {
     return {
-      // project: {},
-      projects: {}
+      projects: {},
+      locations: []
     }
   },
   methods: {
     getAllOldProjects: function () {
-      this.$http.get('/project-old')
+    this.$http.get('/project-old')
           .then(response => {
             this.projects = response.data
+            for (let i = 0; i < this.projects.length; i++) {
+              const location = {
+                lat: this.projects[i].latitude,
+                lng: this.projects[i].longitude,
+                label: this.projects[i].name
+              }
+              this.locations.push(location)
+            }
+            sessionStorage.setItem('locations', JSON.stringify(this.locations))
             console.log(response.data)
           })
           .catch(error => console.log(error))
@@ -79,7 +88,6 @@ export default {
   mounted() {
     this.getAllOldProjects()
   }
-
 
 }
 </script>

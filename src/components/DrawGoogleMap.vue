@@ -25,8 +25,8 @@ export default {
         lat: 58.887858,
         lng: 25.541171
       },
-      locations: [],
-      currentLocation: null
+      locations: JSON.parse(sessionStorage.getItem('locations')),
+      currentLocation: null,
     };
   },
 
@@ -38,35 +38,9 @@ export default {
     setPlace(loc) {
       this.currentLocation = loc;
     },
-    setLocationLatLng: function() {
+    setLocationLatLng: function () {
       lat:58.887858
-          lng: 25.541171
-      // navigator.geolocation.getCurrentPosition(geolocation => {
-      //   this.center = {
-      //     lat: geolocation.coords.latitude,
-      //     lng: geolocation.coords.longitude,
-      //   };
-      // })
-;
-
-      this.locations = [
-        {
-          lat: 59.43776846714063,
-          lng: 24.7500152966542,
-          label: 'Tallinn'
-        },
-        {
-          lat: 58.63366521458556,
-          lng: 27.12649963125393,
-          label: 'Tartumaa'
-        },
-        {
-          lat: 58.68605491351404,
-          lng: 23.83007251353316,
-          label: 'Läänemaa'
-        },
-
-      ];
+      lng: 25.541171
 
     }
   }

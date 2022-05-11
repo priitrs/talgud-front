@@ -8,6 +8,8 @@ import * as VueGoogleMaps from "vue2-google-maps"
 Vue.use(VueAxios,axios)
 Vue.config.productionTip = false
 
+
+
 Vue.use(VueGoogleMaps, {
   load: {
     key: "AIzaSyCU5ey-lEA-N5q61E8jCYRRDLTQckXiT2c",

@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-     <nav class="navbar navbar-dark bg-dark">
+    <nav class="navbar navbar-dark bg-dark">
       <a class="navbar-brand" href="#">
       </a>
 
@@ -21,16 +21,16 @@
           </a>
         </li>
 
-              <li class="nav-item" v-on:click="lisaUuedTalgud">
-                <a class="nav-link" href="#">
-                  Lisa uued Talgud
-                </a>
-              </li>
-              <li class="nav-item" v-on:click="minuTalgud">
-                <a class="nav-link" href="#">
-                  Minu Talgud
-                </a>
-              </li>
+        <li class="nav-item" v-on:click="lisaUuedTalgud">
+          <a class="nav-link" href="#">
+            Lisa uued Talgud
+          </a>
+        </li>
+        <li class="nav-item" v-on:click="minuTalgud">
+          <a class="nav-link" href="#">
+            Minu Talgud
+          </a>
+        </li>
 
       </ul>
 
@@ -41,13 +41,37 @@
     </nav>
 
     <router-view/>
+    <!-- Footer -->
+    <mdb-footer color="blue" class="font-small pt-4 mt-4">
+      <mdb-container class="text-left">
+        <mdb-row>
+          <mdb-col sm="6">
+          </mdb-col>
+          <mdb-col sm="6">
+
+          </mdb-col>
+        </mdb-row>
+      </mdb-container>
+      <div class="footer-copyright text-center py-3">
+        <mdb-container fluid>
+          &copy; 2022 Copyright: <a href="https://www.MDBootstrap.com"></a>
+        </mdb-container>
+      </div>
+    </mdb-footer>
+    <!-- Footer -->
   </div>
+
 </template>
 <script>
+import {
+  mdbFooter,
+  mdbContainer,
+  mdbRow,
+  mdbCol
+} from 'mdbvue';
+
 export default {
   name: 'App',
-
-
   data: function () {
     return {
       loginButtonText: ""
@@ -101,16 +125,16 @@ export default {
 <style>
 
 #app {
-  font-family: var(--mdc-typography-font-family,Roboto,sans-serif);
+  font-family: var(--mdc-typography-font-family, Roboto, sans-serif);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #FFFFFF;
   font-size: 18px;
-
 }
 
 nav a.router-link-exact-active {
   color: #FFFFFF;
+  font-size: 28px;
 }
 </style>

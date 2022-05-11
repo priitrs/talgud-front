@@ -8,6 +8,9 @@
   },
   "dependencies": {
     "axios": "^0.27.2",
+    "mdb-ui-kit": "^4.0.0",
+    "mdb-vue-ui-kit": "^1.13.0",
+    "mdbvue": "^6.7.3",
     "vue": "^2.6.14",
     "vue-axios": "^3.4.1",
     "vue-gallery-slideshow": "^1.5.2",

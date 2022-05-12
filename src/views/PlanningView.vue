@@ -303,6 +303,7 @@ export default {
         }
       })
           .then(response => {
+            console.log(this.contacts)
             this.contacts = response.data
           })
           .catch(error => console.log(error.response.data))

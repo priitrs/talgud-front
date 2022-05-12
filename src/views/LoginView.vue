@@ -2,12 +2,14 @@
   <div>
     <br>
     <input type="text" v-model="username" placeholder="Kasutajanimi">
-    <br>
+    <br><br>
     <input type="text" v-model="password" placeholder="Parool">
     <br><br>
     <div class="align-items-center">
       <button v-on:click="loginRequest" class="btn btn-dark">Logi sisse</button>
     </div>
+    <br>
+    <a> <router-link to="/registration">Registreeri uus kasutaja</router-link> </a>
   </div>
 
 </template>

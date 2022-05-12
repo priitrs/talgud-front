@@ -1,5 +1,6 @@
 <template xmlns="http://www.w3.org/1999/html">
   <div id="app">
+
     <br>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -20,19 +21,18 @@
             <router-link to="/tulevased"><button type="button" class="button"><span>TULEVASED TALGUD</span></button></router-link>
           </a>
         </li>
-
-              <li class="nav-item" v-on:click="lisaUuedTalgud">
-                <a class="nav-link" href="#">
-                  <button type="button" class="button"><span>LISA UUED TALGUD</span></button>
-                </a>
-              </li>
-              <li class="nav-item" v-on:click="minuTalgud">
-                <a class="nav-link" href="#">
-                  <button type="button" class="button"><span>MINU TALGUD</span></button>
-                </a>
-              </li>
+        <li class="nav-item" v-on:click="lisaUuedTalgud">
+          <a class="nav-link" href="#">
+            <button type="button" class="button"><span>LISA UUED TALGUD</span></button>
+          </a>
+        </li>
+        <li class="nav-item" v-on:click="minuTalgud">
+          <a class="nav-link" href="#">
+            <button type="button" class="button"><span>MINU TALGUD</span></button>
+          </a>
+        </li>
         <a class="nav-link" href="#">
-        <router-link to="/login"><button type="button" class="btn btn-light">Logi sisse</button></router-link></a>
+        <button v-on:click="loginButtonAction" type="button" class="btn btn-light">{{loginButtonText}}</button></a>
       </ul>
     </div>
     <router-view/>

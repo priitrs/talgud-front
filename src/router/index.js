@@ -10,6 +10,7 @@ import LoginView from "@/views/LoginView";
 import RegistrationView from "@/views/RegistrationView";
 import PlanningView from "@/views/PlanningView";
 import TalgudLisainfoLogInView from "@/views/TalgudLisainfoLogInView";
+import ContactView from "@/views/ContactView";
 
 Vue.use(VueRouter)
 
@@ -64,6 +65,12 @@ const routes = [
     name: 'registrationRoute',
     component: RegistrationView
   },
+  {
+    path: '/contact',
+    name: 'contactRoute',
+    component: ContactView
+  },
+
 ]
 
 const router = new VueRouter({

@@ -4,9 +4,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <div class="w3-bar w3-black">
-    <nav class="navbar navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">
-      </a>
       <ul class="nav justify-content-center">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">
@@ -24,25 +21,20 @@
           </a>
         </li>
 
-        <li class="nav-item" v-on:click="lisaUuedTalgud">
-          <a class="nav-link" href="#">
-            Lisa uued Talgud
-          </a>
-        </li>
-        <li class="nav-item" v-on:click="minuTalgud">
-          <a class="nav-link" href="#">
-            Minu Talgud
-          </a>
-        </li>
-
+              <li class="nav-item" v-on:click="lisaUuedTalgud">
+                <a class="nav-link" href="#">
+                  <button type="button" class="button"><span>LISA UUED TALGUD</span></button>
+                </a>
+              </li>
+              <li class="nav-item" v-on:click="minuTalgud">
+                <a class="nav-link" href="#">
+                  <button type="button" class="button"><span>MINU TALGUD</span></button>
+                </a>
+              </li>
+        <a class="nav-link" href="#">
+        <router-link to="/login"><button type="button" class="btn btn-light">Logi sisse</button></router-link></a>
       </ul>
-
-      <div v-on:click="loginButtonAction" class="d-grid gap-2 d-md-flex justify-content-md-end">
-        <button type="button" class="btn btn-light">{{ loginButtonText }}</button>
-      </div>
-
-    </nav>
-
+    </div>
     <router-view/>
     <!-- Footer -->
     <mdb-footer color="blue" class="font-small pt-4 mt-4">
@@ -62,7 +54,6 @@
       </div>
     </mdb-footer>
     <!-- Footer -->
-  </div>
   </div>
 
 </template>

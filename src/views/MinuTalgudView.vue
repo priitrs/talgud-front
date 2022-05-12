@@ -6,6 +6,7 @@
           <br>
           <br>
           <br>
+          <div id="tabel">
           <table class="table">
             <thead>
             <tr>
@@ -29,6 +30,7 @@
             </tr>
             </tbody>
           </table>
+          </div>
         </div>
         <div class="col">
           <br>
@@ -50,7 +52,7 @@ export default {
   },
   data: function () {
     return {
-
+      locations: [],
       projects: {}
     }
   },
@@ -63,6 +65,15 @@ export default {
       })
           .then(response => {
             this.projects = response.data
+            for (let i = 0; i < this.projects.length; i++) {
+              const location = {
+                lat: this.projects[i].projectLatitude,
+                lng: this.projects[i].projectLongitude,
+                label: this.projects[i].projectName
+              }
+              this.locations.push(location)
+            }
+            sessionStorage.setItem('locations', JSON.stringify(this.locations))
             console.log(response.data)
           })
           .catch(error => console.log(error))
@@ -80,5 +91,10 @@ export default {
   }
 }
 </script>
+<style>
+#tabel {
+  font-size: 14px;
+}
+</style>
 
 

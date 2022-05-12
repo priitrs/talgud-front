@@ -7,106 +7,112 @@
     {{ project.projectStartTime }}
     <br>
     <br>
-    <div class="container-md">
-      <div class="row justify-content-center">
-        <div class="col-4">
-          <div class="input-group mb-3">
-            <button v-on:click="addTask" class="btn btn-primary me-md-2" type="button" id="button-addon1">Lisa</button>
-            <input type="text" v-model="newTask.name" class="form-control" placeholder="Lisa uus ülesanne"
-                   aria-label="Example text with button addon" aria-describedby="button-addon1">
-          </div>
-          <table class="table">
-            <thead>
-            <tr>
-              <th scope="col">Kustuta</th>
-              <th scope="col">Ülesanded</th>
-              <th scope="col">Vastutaja</th>
-              <th scope="col"></th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr v-for="task in tasks">
-              <td>
-                <button v-on:click="deleteTask(task.id)" type="button" class="btn btn-outline-danger btn-sm">X</button>
-              </td>
-              <td>{{ task.name }}</td>
-              <td>{{ task.contactFirstName }} {{ task.contactLastName }}</td>
-              <td>
-                <div class="dropdown">
-                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Määra uus
+
+    <div id="tabel">
+      <div class="container-md">
+        <div class="row justify-content-center">
+          <div class="col-4">
+            <div class="input-group mb-3">
+              <button v-on:click="addTask" class="btn btn-primary me-md-2" type="button" id="button-addon1">Lisa
+              </button>
+              <input type="text" v-model="newTask.name" class="form-control" placeholder="Lisa uus ülesanne"
+                     aria-label="Example text with button addon" aria-describedby="button-addon1">
+            </div>
+            <table class="table">
+              <thead>
+              <tr>
+                <th scope="col">Kustuta</th>
+                <th scope="col">Ülesanded</th>
+                <th scope="col">Vastutaja</th>
+                <th scope="col"></th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr v-for="task in tasks">
+                <td>
+                  <button v-on:click="deleteTask(task.id)" type="button" class="btn btn-outline-danger btn-sm">X
                   </button>
-                  <div class="dropdown-menu"
-                       aria-labelledby="dropdownMenuButton">
-                    <a v-on:click="updateTask(task.id, null)" class="dropdown-item" href="#">Eemalda</a>
-                    <a v-on:click="updateTask(task.id, contact.userId)" v-for="contact in contacts"
-                       class="dropdown-item" href="#">{{ contact.contactFirstName }} {{ contact.contactLastName }}</a>
+                </td>
+                <td>{{ task.name }}</td>
+                <td>{{ task.contactFirstName }} {{ task.contactLastName }}</td>
+                <td>
+                  <div class="dropdown">
+                    <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Määra uus
+                    </button>
+                    <div class="dropdown-menu"
+                         aria-labelledby="dropdownMenuButton">
+                      <a v-on:click="updateTask(task.id, null)" class="dropdown-item" href="#">Eemalda</a>
+                      <a v-on:click="updateTask(task.id, contact.userId)" v-for="contact in contacts"
+                         class="dropdown-item" href="#">{{ contact.contactFirstName }} {{ contact.contactLastName }}</a>
+                    </div>
                   </div>
-                </div>
-              </td>
-            </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="col-4">
-          <div class="input-group mb-3">
-            <button v-on:click="addResource" class="btn btn-primary me-md-2" type="button" id="button-addon">Lisa
-            </button>
-            <input type="text" v-model="newResource.name" class="form-control" placeholder="Lisa uus vahend"
-                   aria-label="Example text with button addon" aria-describedby="button-addon1">
+                </td>
+              </tr>
+              </tbody>
+            </table>
           </div>
-          <table class="table">
-            <thead>
-            <tr>
-              <th scope="col">Kustuta</th>
-              <th scope="col">Vahendid</th>
-              <th scope="col">Vastutaja</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr v-for="resource in resources">
-              <td>
-                <button v-on:click="deleteResource(resource.id)" type="button" class="btn btn-outline-danger btn-sm">X
-                </button>
-              </td>
-              <td>{{ resource.name }}</td>
-              <td>{{ resource.contactFirstName }} {{ resource.contactLastName }}</td>
-              <td>
-                <div class="dropdown">
-                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
-                          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Määra uus
+
+          <div class="col-4">
+            <div class="input-group mb-3">
+              <button v-on:click="addResource" class="btn btn-primary me-md-2" type="button" id="button-addon">Lisa
+              </button>
+              <input type="text" v-model="newResource.name" class="form-control" placeholder="Lisa uus vahend"
+                     aria-label="Example text with button addon" aria-describedby="button-addon1">
+            </div>
+            <table class="table">
+              <thead>
+              <tr>
+                <th scope="col">Kustuta</th>
+                <th scope="col">Vahendid</th>
+                <th scope="col">Vastutaja</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr v-for="resource in resources">
+                <td>
+                  <button v-on:click="deleteResource(resource.id)" type="button" class="btn btn-outline-danger btn-sm">X
                   </button>
-                  <div class="dropdown-menu"
-                       aria-labelledby="dropdownMenuButton">
-                    <a v-on:click="updateResource(resource.id, null)" class="dropdown-item" href="#">Eemalda</a>
-                    <a v-on:click="updateResource(resource.id, contact.userId)" v-for="contact in contacts"
-                       class="dropdown-item" href="#">{{ contact.contactFirstName }} {{ contact.contactLastName }}</a>
+                </td>
+                <td>{{ resource.name }}</td>
+                <td>{{ resource.contactFirstName }} {{ resource.contactLastName }}</td>
+                <td>
+                  <div class="dropdown">
+                    <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton1"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Määra uus
+                    </button>
+                    <div class="dropdown-menu"
+                         aria-labelledby="dropdownMenuButton">
+                      <a v-on:click="updateResource(resource.id, null)" class="dropdown-item" href="#">Eemalda</a>
+                      <a v-on:click="updateResource(resource.id, contact.userId)" v-for="contact in contacts"
+                         class="dropdown-item" href="#">{{ contact.contactFirstName }} {{ contact.contactLastName }}</a>
+                    </div>
                   </div>
-                </div>
-              </td>
-            </tr>
-            </tbody>
-          </table>
-        </div>
-
-
-        <div class="col-3">
-          <div class="input-group mb-3">
-            <button v-on:click="addNewPicture" class="btn btn-primary me-md-2" type="button" id="inputGroupFileAddon03">
-              Lisa pilt
-            </button>
-            <input type="file" @change="handleImage" accept="image/x-png,image/jpeg" class="form-control"
-                   id="inputGroupFile03" aria-describedby="inputGroupFileAddon03" aria-label="Upload">
+                </td>
+              </tr>
+              </tbody>
+            </table>
           </div>
 
-          <br>
-          <div id="galerii">
-            <img class="image" v-for="(picture, i) in pictures" :src="picture" :key="i"
-                 @click="index = i" style="height: 200px">
-            <vue-gallery-slideshow :images="pictures" :index="index" @close="index = null"></vue-gallery-slideshow>
+
+          <div class="col-3">
+            <div class="input-group mb-3">
+              <button v-on:click="addNewPicture" class="btn btn-primary me-md-2" type="button"
+                      id="inputGroupFileAddon03">
+                Lisa pilt
+              </button>
+              <input type="file" @change="handleImage" accept="image/x-png,image/jpeg" class="form-control"
+                     id="inputGroupFile03" aria-describedby="inputGroupFileAddon03" aria-label="Upload">
+            </div>
+
+            <br>
+            <div id="galerii">
+              <img class="image" v-for="(picture, i) in pictures" :src="picture" :key="i"
+                   @click="index = i" style="height: 200px">
+              <vue-gallery-slideshow :images="pictures" :index="index" @close="index = null"></vue-gallery-slideshow>
+            </div>
           </div>
         </div>
       </div>
@@ -311,6 +317,9 @@ export default {
 }
 </script>
 
-<style scoped>
+<style >
+#tabel{
+  font-size: 14px;
+}
 
 </style>

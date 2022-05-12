@@ -27,11 +27,13 @@ export default {
       },
       locations: JSON.parse(sessionStorage.getItem('locations')),
       currentLocation: null,
+
     };
   },
 
   mounted() {
     this.setLocationLatLng();
+
   },
 
   methods: {
@@ -43,6 +45,9 @@ export default {
       lng: 25.541171
 
     }
-  }
+
+
+  },
+
 };
 </script>

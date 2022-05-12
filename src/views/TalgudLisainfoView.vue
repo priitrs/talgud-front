@@ -96,7 +96,7 @@ export default {
     getAllResourcesForProject: function () {
       this.$http.get('/resource', {
         params: {
-          projectId: this.project.projectId
+          projectId: this.project.id
         }
       })
           .then(response => {

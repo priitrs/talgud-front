@@ -45,7 +45,6 @@
 <script>
 
 
-
 import DrawGoogleMap from "@/components/DrawGoogleMap";
 
 export default {
@@ -60,8 +59,8 @@ export default {
     }
   },
   methods: {
-    getAllOldProjects: function () {
-    this.$http.get('/project-old')
+    getAllOldProjects: async function () {
+      await this.$http.get('/project-old')
           .then(response => {
             this.projects = response.data
             for (let i = 0; i < this.projects.length; i++) {

@@ -8,17 +8,23 @@
       <ul class="nav justify-content-center">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">
-            <router-link to="/"><button type="button" class="button"><span>AVALEHT</span></button></router-link>
+            <router-link to="/">
+              <button type="button" class="button"><span>AVALEHT</span></button>
+            </router-link>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">
-            <router-link to="/toimunud"><button type="button" class="button"><span>TOIMUNUD TALGUD</span></button></router-link>
+            <router-link to="/toimunud">
+              <button type="button" class="button"><span>TOIMUNUD TALGUD</span></button>
+            </router-link>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">
-            <router-link to="/tulevased"><button type="button" class="button"><span>TULEVASED TALGUD</span></button></router-link>
+            <router-link to="/tulevased">
+              <button type="button" class="button"><span>TULEVASED TALGUD</span></button>
+            </router-link>
           </a>
         </li>
         <li class="nav-item" v-on:click="lisaUuedTalgud">
@@ -32,7 +38,8 @@
           </a>
         </li>
         <a class="nav-link" href="#">
-        <button v-on:click="loginButtonAction" type="button" class="btn btn-light">{{loginButtonText}}</button></a>
+          <button v-on:click="loginButtonAction" type="button" class="btn btn-light">{{ loginButtonText }}</button>
+        </a>
       </ul>
     </div>
     <router-view/>
@@ -101,6 +108,7 @@ export default {
     loginButtonAction: function () {
       if (sessionStorage.getItem('userId') > 0) {
         sessionStorage.clear()
+        window.location.reload()
         this.$router.push({name: 'avalehtRoute'})
       } else {
         sessionStorage.setItem('lastRoute', 'avalehtRoute')
@@ -158,6 +166,7 @@ export default {
   opacity: 1;
   right: 0;
 }
+
 #app {
   font-family: var(--mdc-typography-font-family, Roboto, sans-serif);
   -webkit-font-smoothing: antialiased;

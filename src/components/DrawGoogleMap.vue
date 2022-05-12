@@ -19,19 +19,23 @@
 <script>
 export default {
   name: "DrawGoogleMap",
+  props: {
+    locations: []
+  },
   data() {
     return {
       center: {
         lat: 58.887858,
         lng: 25.541171
       },
-      locations: JSON.parse(sessionStorage.getItem('locations')),
       currentLocation: null,
+
     };
   },
 
   mounted() {
     this.setLocationLatLng();
+
   },
 
   methods: {
@@ -43,6 +47,9 @@ export default {
       lng: 25.541171
 
     }
-  }
+
+
+  },
+
 };
 </script>

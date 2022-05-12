@@ -10,52 +10,55 @@
     Lõpp: {{ project.projectEndTime }}
     <br>
     <br>
-    <div class="container-md">
-      <div class="row justify-content-center">
-        <div class="col-3">
-          <table class="table">
-            <thead>
-            <tr>
-              <th scope="col">Ülesanded</th>
-              <th scope="col">Vastutaja</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr v-for="task in tasks">
-              <td>{{ task.name }}</td>
-              <td>{{ task.contactFirstName }} {{ task.contactLastName }}</td>
-            </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="col-3">
-          <table class="table">
-            <thead>
-            <tr>
-              <th scope="col">Vahendid</th>
-              <th scope="col">Vastutaja</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr v-for="resource in resources">
-              <td>{{ resource.name }}</td>
-              <td>{{ resource.contactFirstName }} {{ resource.contactLastName }}</td>
-            </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="col-4">
-          <br>
 
-          <div id="galerii">
-            <img class="image" v-for="(picture, i) in pictures" :src="picture" :key="i"
-                 @click="index = i" style="height: 200px">
-            <vue-gallery-slideshow :images="pictures" :index="index" @close="index = null"></vue-gallery-slideshow>
+    <div id="tabel">
+      <div class="container-md">
+        <div class="row justify-content-center">
+          <div class="col-3">
+            <table class="table">
+              <thead>
+              <tr>
+                <th scope="col">Ülesanded</th>
+                <th scope="col">Vastutaja</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr v-for="task in tasks">
+                <td>{{ task.name }}</td>
+                <td>{{ task.contactFirstName }} {{ task.contactLastName }}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="col-3">
+            <table class="table">
+              <thead>
+              <tr>
+                <th scope="col">Vahendid</th>
+                <th scope="col">Vastutaja</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr v-for="resource in resources">
+                <td>{{ resource.name }}</td>
+                <td>{{ resource.contactFirstName }} {{ resource.contactLastName }}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="col-4">
+            <br>
+
+            <div id="galerii">
+              <img class="image" v-for="(picture, i) in pictures" :src="picture" :key="i"
+                   @click="index = i" style="height: 200px">
+              <vue-gallery-slideshow :images="pictures" :index="index" @close="index = null"></vue-gallery-slideshow>
+            </div>
           </div>
         </div>
       </div>
+      <br>
     </div>
-    <br>
 
     <div v-if="showManageButton" class="d-grid gap-2 mx-auto">
       <button v-on:click="manageButtonAction" class="btn btn-primary me-md-2">Redigeeri</button>
@@ -144,8 +147,12 @@ export default {
 
 </script>
 <style>
-.col-4,.col-3 {
+.col-4, .col-3 {
   background-color: white;
+}
+
+#tabel {
+  font-size: 14px;
 }
 </style>
 

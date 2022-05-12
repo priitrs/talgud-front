@@ -7,33 +7,35 @@
           <br>
           <br>
           <br>
-          <table class="table">
-            <thead>
-            <tr>
-              <th scope="col">Kuupäev</th>
-              <th scope="col">Nimi</th>
-              <th scope="col">Asukoht</th>
-              <th scope="col"></th>
-            </tr>
-            </thead>
+          <div id="tabel">
+            <table class="table">
+              <thead>
+              <tr>
+                <th scope="col">Kuupäev</th>
+                <th scope="col">Nimi</th>
+                <th scope="col">Asukoht</th>
+                <th scope="col"></th>
+              </tr>
+              </thead>
 
-            <tbody>
-            <tr v-for="project in projects">
-              <th scope="row">{{ project.startTime }}</th>
-              <td>{{ project.name }}</td>
-              <td>{{ project.address }}</td>
-              <td>
-                <button type="button" class="btn btn-secondary btn-sm" v-on:click="navigateToTalgudLisainfo(project)">
-                  Lisainfo
-                </button>
-              </td>
-            </tr>
-            </tbody>
-          </table>
+              <tbody>
+              <tr v-for="project in projects">
+                <th scope="row">{{ project.startTime }}</th>
+                <td>{{ project.name }}</td>
+                <td>{{ project.address }}</td>
+                <td>
+                  <button type="button" class="btn btn-secondary btn-sm" v-on:click="navigateToTalgudLisainfo(project)">
+                    Lisainfo
+                  </button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
         <div class="col">
           <br>
-          <DrawGoogleMap/>
+          <DrawGoogleMap :locations="locations"/>
         </div>
       </div>
     </div>
@@ -43,7 +45,6 @@
 </template>
 
 <script>
-
 
 
 import DrawGoogleMap from "@/components/DrawGoogleMap";
@@ -60,8 +61,8 @@ export default {
     }
   },
   methods: {
-    getAllOldProjects: function () {
-    this.$http.get('/project-old')
+    getAllOldProjects: async function () {
+      await this.$http.get('/project-old')
           .then(response => {
             this.projects = response.data
             for (let i = 0; i < this.projects.length; i++) {
@@ -72,7 +73,6 @@ export default {
               }
               this.locations.push(location)
             }
-            sessionStorage.setItem('locations', JSON.stringify(this.locations))
             console.log(response.data)
           })
           .catch(error => console.log(error))
@@ -92,6 +92,9 @@ export default {
 }
 </script>
 
-<style scoped>
+<style >
+#tabel {
+  font-size: 14px;
+}
 
 </style>

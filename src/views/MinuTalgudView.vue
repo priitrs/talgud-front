@@ -6,33 +6,35 @@
           <br>
           <br>
           <br>
-          <table class="table">
-            <thead>
-            <tr>
-              <th scope="col">Kuupäev</th>
-              <th scope="col">Nimi</th>
-              <th scope="col">Asukoht</th>
-              <th scope="col"></th>
-            </tr>
-            </thead>
+          <div id="tabel">
+            <table class="table">
+              <thead>
+              <tr>
+                <th scope="col">Kuupäev</th>
+                <th scope="col">Nimi</th>
+                <th scope="col">Asukoht</th>
+                <th scope="col"></th>
+              </tr>
+              </thead>
 
-            <tbody>
-            <tr v-for="project in projects">
-              <th scope="row">{{ project.projectStartTime }}</th>
-              <td>{{ project.projectName }}</td>
-              <td>{{ project.projectAddress }}</td>
-              <td>
-                <button type="button" class="btn btn-secondary btn-sm" v-on:click="navigateToTalgudLisainfo(project)">
-                  Lisainfo
-                </button>
-              </td>
-            </tr>
-            </tbody>
-          </table>
+              <tbody>
+              <tr v-for="project in projects">
+                <th scope="row">{{ project.projectStartTime }}</th>
+                <td>{{ project.projectName }}</td>
+                <td>{{ project.projectAddress }}</td>
+                <td>
+                  <button type="button" class="btn btn-secondary btn-sm" v-on:click="navigateToTalgudLisainfo(project)">
+                    Lisainfo
+                  </button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
         <div class="col">
           <br>
-          <DrawGoogleMap/>
+          <DrawGoogleMap :locations="locations"/>
         </div>
       </div>
     </div>
@@ -43,6 +45,7 @@
 
 import DrawGoogleMap from "@/components/DrawGoogleMap";
 
+
 export default {
   name: "MinuTalgudView",
   components: {
@@ -50,7 +53,7 @@ export default {
   },
   data: function () {
     return {
-
+      locations: [],
       projects: {}
     }
   },
@@ -63,6 +66,14 @@ export default {
       })
           .then(response => {
             this.projects = response.data
+            for (let i = 0; i < this.projects.length; i++) {
+              const location = {
+                lat: this.projects[i].projectLatitude,
+                lng: this.projects[i].projectLongitude,
+                label: this.projects[i].projectName
+              }
+              this.locations.push(location)
+            }
             console.log(response.data)
           })
           .catch(error => console.log(error))
@@ -75,10 +86,15 @@ export default {
     },
   },
 
-  mounted() {
+  beforeMount() {
     this.findAllUserProjects()
   }
 }
 </script>
+<style>
+#tabel {
+  font-size: 14px;
+}
+</style>
 
 

@@ -82,7 +82,10 @@ export default {
       project: JSON.parse(sessionStorage.getItem('project')),
       pictures: [],
       index: null,
-      showOsalenButton: false
+      showOsalenButton: true,
+      userProjects: [],
+      isProjectUser: false,
+      userId: sessionStorage.getItem('userId')
     }
   },
 
@@ -124,11 +127,7 @@ export default {
           })
           .catch(error => console.log(error.response.data))
     },
-    showOsalenButtonValue: function () {
-      if (sessionStorage.getItem('lastRoute') == 'tulevasedRoute') {
-        this.showOsalenButton = true
-      }
-    },
+
     osalenButtonAction: function () {
       if (sessionStorage.getItem('userId') > 0) {
         this.$http.post('/project-user', null, {
@@ -137,19 +136,37 @@ export default {
             userId: sessionStorage.getItem('userId'),
           }
         })
-        this.$router.push({name: 'planningRoute'})
+        this.$router.push({name: 'minuRoute'})
       } else {
         this.$router.push({name: 'loginRoute'})
       }
+    },
+    getAllUserProjects: async function () {
+      await this.$http.get('/project-user', {
+        params: {
+          userId: this.userId
+        }
+      })
+          .then(response => {
+            this.userProjects = response.data
+            console.log(this.userProjects)
+            console.log(this.userProjects.length)
+            for (let i = 0; i < this.userProjects.length; i++) {
+              if (this.project.id === this.userProjects[i].projectId ) {
+                this.showOsalenButton= false
+                }
+              console.log(this.showOsalenButton)
+            }
+          })
+          .catch(error => console.log(error.response.data))
     }
   },
   mounted() {
     this.getAllTasksForProject()
     this.getAllResourcesForProject()
     this.getAllPictures()
-    this.showOsalenButtonValue()
+    this.getAllUserProjects()
   },
-
 }
 
 </script>

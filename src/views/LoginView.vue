@@ -6,7 +6,7 @@
     <input type="text" v-model="password" placeholder="Parool">
     <br><br>
     <div class="align-items-center">
-      <button v-on:click="loginRequest" class="btn btn-light">Logi sisse</button>
+      <button v-on:click="loginRequest" class="btn btn-dark">Logi sisse</button>
     </div>
   </div>
 

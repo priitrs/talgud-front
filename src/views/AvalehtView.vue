@@ -33,10 +33,10 @@ p {
 
 @keyframes animate {
   0% {
-    background-position: -500%;
+    background-position: -400%;
   }
   100% {
-    background-position: 500%;
+    background-position: 400%;
   }
 }
 </style>

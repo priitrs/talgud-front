@@ -4,11 +4,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <div class="w3-bar w3-black">
-      <a class="navbar-brand" href="#">
-      </a>
       <ul class="nav justify-content-center">
         <li class="nav-item">
-
           <a class="nav-link active" aria-current="page" href="#">
             <router-link to="/"><button type="button" class="button"><span>AVALEHT</span></button></router-link>
           </a>
@@ -39,6 +36,24 @@
       </ul>
     </div>
     <router-view/>
+    <!-- Footer -->
+    <mdb-footer color="blue" class="font-small pt-4 mt-4">
+      <mdb-container class="text-left">
+        <mdb-row>
+          <mdb-col sm="6">
+          </mdb-col>
+          <mdb-col sm="6">
+
+          </mdb-col>
+        </mdb-row>
+      </mdb-container>
+      <div class="footer-copyright text-center py-3">
+        <mdb-container fluid>
+          &copy; 2022 Copyright: <a href="https://www.MDBootstrap.com"></a>
+        </mdb-container>
+      </div>
+    </mdb-footer>
+    <!-- Footer -->
   </div>
 </template>
 <script>
@@ -136,7 +151,7 @@ export default {
   right: 0;
 }
 #app {
-  font-family: var(--mdc-typography-font-family,Roboto,sans-serif);
+  font-family: var(--mdc-typography-font-family, Roboto, sans-serif);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -147,5 +162,6 @@ export default {
 
 nav a.router-link-exact-active {
   color: #FFFFFF;
+  font-size: 28px;
 }
 </style>

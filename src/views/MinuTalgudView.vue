@@ -7,34 +7,34 @@
           <br>
           <br>
           <div id="tabel">
-          <table class="table">
-            <thead>
-            <tr>
-              <th scope="col">Kuupäev</th>
-              <th scope="col">Nimi</th>
-              <th scope="col">Asukoht</th>
-              <th scope="col"></th>
-            </tr>
-            </thead>
+            <table class="table">
+              <thead>
+              <tr>
+                <th scope="col">Kuupäev</th>
+                <th scope="col">Nimi</th>
+                <th scope="col">Asukoht</th>
+                <th scope="col"></th>
+              </tr>
+              </thead>
 
-            <tbody>
-            <tr v-for="project in projects">
-              <th scope="row">{{ project.projectStartTime }}</th>
-              <td>{{ project.projectName }}</td>
-              <td>{{ project.projectAddress }}</td>
-              <td>
-                <button type="button" class="btn btn-secondary btn-sm" v-on:click="navigateToTalgudLisainfo(project)">
-                  Lisainfo
-                </button>
-              </td>
-            </tr>
-            </tbody>
-          </table>
+              <tbody>
+              <tr v-for="project in projects">
+                <th scope="row">{{ project.projectStartTime }}</th>
+                <td>{{ project.projectName }}</td>
+                <td>{{ project.projectAddress }}</td>
+                <td>
+                  <button type="button" class="btn btn-secondary btn-sm" v-on:click="navigateToTalgudLisainfo(project)">
+                    Lisainfo
+                  </button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
           </div>
         </div>
         <div class="col">
           <br>
-          <DrawGoogleMap/>
+          <DrawGoogleMap :locations="locations"/>
         </div>
       </div>
     </div>
@@ -44,6 +44,7 @@
 <script>
 
 import DrawGoogleMap from "@/components/DrawGoogleMap";
+
 
 export default {
   name: "MinuTalgudView",
@@ -73,7 +74,6 @@ export default {
               }
               this.locations.push(location)
             }
-            sessionStorage.setItem('locations', JSON.stringify(this.locations))
             console.log(response.data)
           })
           .catch(error => console.log(error))
@@ -86,7 +86,7 @@ export default {
     },
   },
 
-  mounted() {
+  beforeMount() {
     this.findAllUserProjects()
   }
 }

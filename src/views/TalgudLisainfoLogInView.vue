@@ -147,9 +147,7 @@ export default {
 
 </script>
 <style>
-.col-4, .col-3 {
-  background-color: white;
-}
+
 
 #tabel {
   font-size: 14px;

@@ -1,5 +1,4 @@
 <template>
-
     <div>
       <br>
       <input type="text" v-model="username" placeholder="Kasutajanimi">
@@ -21,8 +20,8 @@ export default {
       // lastname: "",
       // phonenumber: "",
       // email: "",
-      username: "",
-      password: "",
+      username: this.$route.query.userName,
+      password: this.$route.query.password,
       userId: null,
       lastRoute: ""
     }

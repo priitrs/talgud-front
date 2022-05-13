@@ -10,23 +10,17 @@
       <ul class="nav justify-content-center">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">
-            <router-link to="/">
-              <button type="button" class="button"><span>AVALEHT</span></button>
-            </router-link>
+            <router-link to="/"><button type="button" class="button"><span>AVALEHT</span></button></router-link>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">
-            <router-link to="/toimunud">
-              <button type="button" class="button"><span>TOIMUNUD TALGUD</span></button>
-            </router-link>
+            <router-link to="/toimunud"><button type="button" class="button"><span>TOIMUNUD TALGUD</span></button></router-link>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">
-            <router-link to="/tulevased">
-              <button type="button" class="button"><span>TULEVASED TALGUD</span></button>
-            </router-link>
+            <router-link to="/tulevased"><button type="button" class="button"><span>TULEVASED TALGUD</span></button></router-link>
           </a>
         </li>
         <li class="nav-item" v-on:click="lisaUuedTalgud">
@@ -40,8 +34,8 @@
           </a>
         </li>
         <a class="nav-link" href="#">
-          <button  v-on:click="loginButtonAction" type="button" class="btn btn-light">{{loginButtonText}}</button>
-        </a>
+        <button v-on:click="loginButtonAction" type="button" class="btn btn-light">{{loginButtonText}}</button></a>
+        <a> <h6><router-link to="/editContact" class="align-text-right">Muuda kasutaja andmeid</router-link></h6> </a>
       </ul>
     </div>
     <router-view/>
@@ -108,7 +102,7 @@ export default {
   border: none;
   color: #FFFFFF;
   text-align: center;
-  font-size: 20px;
+  font-size: 18px;
   padding: 5px;
   transition: all 0.5s;
   cursor: pointer;
@@ -144,7 +138,7 @@ export default {
   font-family: var(--mdc-typography-font-family, Roboto, sans-serif);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: start;
+  text-align: center;
   color: #FFFFFF;
   font-size: 18px;
 
@@ -162,5 +156,6 @@ nav a.router-link-exact-active {
   color: #FFFFFF;
   font-size: 28px;
 }
+
 </style>
 

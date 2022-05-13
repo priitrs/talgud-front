@@ -40,8 +40,11 @@
           </a>
         </li>
         <a class="nav-link" href="#">
-          <button  v-on:click="loginButtonAction" type="button" class="btn btn-light">{{loginButtonText}}</button>
+          <button v-on:click="loginButtonAction" type="button" class="btn btn-light">{{ loginButtonText }}</button>
         </a>
+        <p class="nav-link">
+          Tere {{ loggedInContact.firstName }}!
+        </p>
       </ul>
     </div>
     <router-view/>
@@ -56,7 +59,9 @@ export default {
 
   data: function () {
     return {
-      loginButtonText: ""
+      loginButtonText: "",
+      loggedInContact: {},
+      userId: sessionStorage.getItem('userId')
     }
   },
   methods: {
@@ -93,9 +98,21 @@ export default {
         this.$router.push({name: 'loginRoute'})
       }
     },
+    getSignedInUserContact: function () {
+      this.$http.get('/authentication/contact', {
+        params: {
+          userId: this.userId
+        }
+      })
+          .then(response => {
+            this.loggedInContact = response.data
+          })
+          .catch(error => console.log(error.response.data))
+    }
   },
   mounted() {
     this.loginButton()
+    this.getSignedInUserContact()
   }
 }
 </script>

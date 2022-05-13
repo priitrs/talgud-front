@@ -3,21 +3,9 @@
     <section class="hero is-dark">
       <div class="hero-body">
         <div class="container">
-          <br><br><br><br><br><br><br><br><br>
-
-          <!--            <p class="ml13">VIIME KOKKU VABATAHTLIKUD ÜHISE EESMÄRGI SAAVUTAMISE NIMEL.</p>-->
           <h1 class="title">Oled oodatud talgutele!</h1>
           <h5 class="title">Talgud on nagu laulupidu, see on alateadlik vajadus tunda end kuhugi kuuluvana.</h5>
           <br>
-          <!--            <h2 class="subtitle">-->
-          <!--              Leia endale sobivad talgud-->
-          <!--            </h2>-->
-
-          <!--            <div class="button-block">-->
-          <!--              <button class="button is-xl is-dark">-->
-          <!--                Vaata toimuvaid talguid-->
-          <!--              </button>-->
-
         </div>
       </div>
 
@@ -82,20 +70,20 @@ export default {
   font-size: 1.7rem;
 }
 
-p {
-  position: relative;
-  font-family: sans-serif;
-  text-transform: uppercase;
-  font-size: 2em;
-  letter-spacing: 4px;
-  overflow: hidden;
-  background: linear-gradient(90deg, #000, #fff, #000);
-  background-repeat: no-repeat;
-  background-size: 80%;
-  animation: animate 12s linear infinite;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: rgba(255, 255, 255, 0);
-}
+/*p {*/
+/*  position: relative;*/
+/*  font-family: sans-serif;*/
+/*  text-transform: uppercase;*/
+/*  font-size: 2em;*/
+/*  letter-spacing: 4px;*/
+/*  overflow: hidden;*/
+/*  background: linear-gradient(90deg, #000, #fff, #000);*/
+/*  background-repeat: no-repeat;*/
+/*  background-size: 80%;*/
+/*  animation: animate 12s linear infinite;*/
+/*  -webkit-background-clip: text;*/
+/*  -webkit-text-fill-color: rgba(255, 255, 255, 0);*/
+/*}*/
 
 @keyframes animate {
   0% {

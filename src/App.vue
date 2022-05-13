@@ -1,10 +1,11 @@
 <template xmlns="http://www.w3.org/1999/html">
   <div id="app">
     <div id="footer">
-      www.talgud.ee. Kõik õigused kaitstud. Talgud OÜ Uus 12. Tallinn 11624. Infoliin E-R 10-18. tel 666 5820. info@talgud.ee. <a href="https://www.MDBootstrap.com"></a>
+      www.talgud.ee. Kõik õigused kaitstud. Talgud OÜ Uus 12. Tallinn 11624. Infoliin E-R 10-18. tel 666 5820.
+      info@talgud.ee. <a href="https://www.MDBootstrap.com"></a>
     </div>
-        <br>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <br>
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <div class="w3-bar w3-black">
       <ul class="nav justify-content-center">
@@ -42,9 +43,8 @@
         <a class="nav-link" href="#">
           <button v-on:click="loginButtonAction" type="button" class="btn btn-light">{{ loginButtonText }}</button>
         </a>
-        <p class="nav-link">
-          Tere {{ loggedInContact.firstName }}!
-        </p>
+        <h4>Tere {{ loggedInContact.firstName }}!</h4>
+
       </ul>
     </div>
     <router-view/>
@@ -144,16 +144,16 @@ export default {
   position: absolute;
   opacity: 0;
   top: 0;
-  right: -20px;
+  right: -15px;
   transition: 0.5s;
 }
 
 .button:hover span {
-  padding-right: 25px;
+  padding-right: 5px;
 }
 
 .button:hover span:after {
-  opacity: 1;
+  opacity: 0.5;
   right: 0;
 }
 
@@ -161,17 +161,17 @@ export default {
   font-family: var(--mdc-typography-font-family, Roboto, sans-serif);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  text-align: start;
   color: #FFFFFF;
   font-size: 18px;
 
 }
 
 #footer {
-  position:absolute;
-  bottom:0;
-  width:100%;
-  height:100px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
 
 }
 

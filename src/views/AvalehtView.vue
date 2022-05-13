@@ -14,8 +14,6 @@
 </template>
 
 <script>
-
-
 export default {
   name: "AvalehtView",
   comments: {},
@@ -85,13 +83,7 @@ export default {
 /*  -webkit-text-fill-color: rgba(255, 255, 255, 0);*/
 /*}*/
 
-@keyframes animate {
-  0% {
-    background-position: -400%;
-  }
-  100% {
-    background-position: 400%;
-  }
-}
+
+
 
 </style>

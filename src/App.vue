@@ -1,7 +1,9 @@
 <template xmlns="http://www.w3.org/1999/html">
   <div id="app">
-
-    <br>
+    <div id="footer">
+      www.talgud.ee. Kõik õigused kaitstud. Talgud OÜ Uus 12. Tallinn 11624. Infoliin E-R 10-18. tel 666 5820. info@talgud.ee. <a href="https://www.MDBootstrap.com"></a>
+    </div>
+        <br>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <div class="w3-bar w3-black">
@@ -43,38 +45,14 @@
       </ul>
     </div>
     <router-view/>
-    <!-- Footer -->
-    <mdb-footer color="blue" class="font-small pt-4 mt-4">
-      <mdb-container class="text-left">
-        <mdb-row>
-          <mdb-col sm="6">
-          </mdb-col>
-          <mdb-col sm="6">
 
-          </mdb-col>
-        </mdb-row>
-      </mdb-container>
-      <div class="footer-copyright text-center py-3">
-        <mdb-container fluid>
-          &copy; 2022 Copyright: <a href="https://www.MDBootstrap.com"></a>
-        </mdb-container>
-      </div>
-    </mdb-footer>
-    <!-- Footer -->
   </div>
 
 </template>
 <script>
-// import {
-//   mdbFooter,
-//   mdbContainer,
-//   mdbRow,
-//   mdbCol
-// } from 'mdbvue';
 
 export default {
   name: 'App',
-
 
   data: function () {
     return {
@@ -117,15 +95,11 @@ export default {
     }
 
   },
-
   mounted() {
     this.loginButton()
   }
 }
-
-
 </script>
-
 
 <style>
 .button {
@@ -177,8 +151,17 @@ export default {
 
 }
 
+#footer {
+  position:absolute;
+  bottom:0;
+  width:100%;
+  height:100px;
+
+}
+
 nav a.router-link-exact-active {
   color: #FFFFFF;
   font-size: 28px;
 }
 </style>
+

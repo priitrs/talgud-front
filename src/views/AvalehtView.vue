@@ -14,6 +14,8 @@
 </template>
 
 <script>
+
+
 export default {
   name: "AvalehtView",
   comments: {},
@@ -28,7 +30,6 @@ export default {
   background-position: center;
   background-repeat: no-repeat;
   height: 400px;
-
 }
 
 .hero-body .title {
@@ -37,51 +38,12 @@ export default {
   font-size: 60px;
 }
 
-.subtitle {
-  text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.7);
-  font-size: 30px;
-}
 
-.button-block {
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-  position: absolute;
-  bottom: -150px;
-}
 
-.button {
-  margin-right: 50px;
-  padding-left: 50px;
-  padding-right: 50px;
-}
 
-.welcome {
-  width: 400px;
-  padding: 10px;
-  margin-left: auto;
-  margin-right: auto;
-}
 
-.is-xl {
-  font-size: 1.7rem;
-}
 
-/*p {*/
-/*  position: relative;*/
-/*  font-family: sans-serif;*/
-/*  text-transform: uppercase;*/
-/*  font-size: 2em;*/
-/*  letter-spacing: 4px;*/
-/*  overflow: hidden;*/
-/*  background: linear-gradient(90deg, #000, #fff, #000);*/
-/*  background-repeat: no-repeat;*/
-/*  background-size: 80%;*/
-/*  animation: animate 12s linear infinite;*/
-/*  -webkit-background-clip: text;*/
-/*  -webkit-text-fill-color: rgba(255, 255, 255, 0);*/
-/*}*/
+
 
 
 

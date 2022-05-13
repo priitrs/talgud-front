@@ -1,6 +1,6 @@
 <template>
   <div>
-    <a> <router-link to="/editContact">Muuda kasutaja andmeid</router-link> </a>
+
     <AddGoogleMap/>
   </div>
 </template>

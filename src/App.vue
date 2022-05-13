@@ -144,7 +144,7 @@ export default {
   font-family: var(--mdc-typography-font-family, Roboto, sans-serif);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  text-align: start;
   color: #FFFFFF;
   font-size: 18px;
 

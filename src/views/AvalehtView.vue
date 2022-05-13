@@ -3,7 +3,7 @@
     <section class="hero is-dark">
       <div class="hero-body">
         <div class="container">
-          <br><br><br><br><br><br><br><br><br>
+
 
           <!--            <p class="ml13">VIIME KOKKU VABATAHTLIKUD ÜHISE EESMÄRGI SAAVUTAMISE NIMEL.</p>-->
           <h1 class="title">Oled oodatud talgutele!</h1>

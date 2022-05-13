@@ -24,6 +24,7 @@ export default {
       userId: null,
       lastRoute: ""
     }
+
   },
   methods: {
     loginRequest: function () {

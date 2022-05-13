@@ -3,9 +3,21 @@
     <section class="hero is-dark">
       <div class="hero-body">
         <div class="container">
-          <h1 class="title">Oled oodatud talgutele!</h1>
+
+
+          <!--            <p class="ml13">VIIME KOKKU VABATAHTLIKUD ÜHISE EESMÄRGI SAAVUTAMISE NIMEL.</p>-->
+          <br><br><br><br><br><br><br><br><br><br><br><br><br>
           <h5 class="title">Talgud on nagu laulupidu, see on alateadlik vajadus tunda end kuhugi kuuluvana.</h5>
-          <br>
+          <h1 class="title">Oled oodatud talgutele!</h1>
+          <!--            <h2 class="subtitle">-->
+          <!--              Leia endale sobivad talgud-->
+          <!--            </h2>-->
+
+          <!--            <div class="button-block">-->
+          <!--              <button class="button is-xl is-dark">-->
+          <!--                Vaata toimuvaid talguid-->
+          <!--              </button>-->
+
         </div>
       </div>
 
@@ -30,6 +42,7 @@ export default {
   background-position: center;
   background-repeat: no-repeat;
   height: 400px;
+
 }
 
 .hero-body .title {

@@ -1,8 +1,8 @@
 <template>
+
     <div>
       <br>
-
-      <input type="text" required v-model="username" placeholder="Kasutajanimi" >
+      <input type="text" v-model="username" placeholder="Kasutajanimi">
       <br><br>
       <input type="text" v-model="password" placeholder="Parool">
       <br><br>
@@ -17,8 +17,8 @@ export default {
   name: "LoginView",
   data: function () {
     return {
-      username: "",
-      password: "",
+      username: this.$route.query.userName,
+      password: this.$route.query.password,
       userId: null,
       lastRoute: ""
     }

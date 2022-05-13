@@ -1,6 +1,6 @@
 <template>
 
-<div>
+<div id="plaintext">
   <br><br><br><br><br><br><br><br><br>
 
     <p class="ml13">VIIME KOKKU VABATAHTLIKUD ÜHISE EESMÄRGI SAAVUTAMISE NIMEL.</p>
@@ -16,7 +16,7 @@ export default {
 </script>
 <style>
 
-p {
+#plaintext {
   position: relative;
   font-family: sans-serif;
   text-transform: uppercase;

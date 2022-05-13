@@ -1,7 +1,5 @@
 <template xmlns="http://www.w3.org/1999/html">
   <div id="app">
-
-    <br>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <div class="w3-bar w3-black">
@@ -38,8 +36,11 @@
           </a>
         </li>
         <a class="nav-link" href="#">
-          <button  v-on:click="loginButtonAction" type="button" class="btn btn-light">{{loginButtonText}}</button>
+          <button v-on:click="loginButtonAction" type="button" class="btn btn-light">{{ loginButtonText }}</button>
         </a>
+        <p class="nav-link">
+          Tere {{ loggedInContact.firstName }}!
+        </p>
       </ul>
     </div>
     <router-view/>
@@ -78,7 +79,9 @@ export default {
 
   data: function () {
     return {
-      loginButtonText: ""
+      loginButtonText: "",
+      loggedInContact: {},
+      userId: sessionStorage.getItem('userId')
     }
   },
   methods: {
@@ -115,10 +118,22 @@ export default {
         this.$router.push({name: 'loginRoute'})
       }
     },
+    getSignedInUserContact: function () {
+      this.$http.get('/authentication/contact', {
+        params: {
+          userId: this.userId
+        }
+      })
+          .then(response => {
+            this.loggedInContact = response.data
+          })
+          .catch(error => console.log(error.response.data))
+    }
   },
 
   mounted() {
     this.loginButton()
+    this.getSignedInUserContact()
   }
 }
 

@@ -1,6 +1,6 @@
 <template xmlns="http://www.w3.org/1999/html">
   <div id="app">
-    <a v-if="userId > 0"> <h6><router-link to="/editContact" class="align-right">Muuda kasutaja kontakte</router-link></h6> </a>
+    <a id="h6" v-if="userId > 0"> <h6><router-link to="/editContact" class="align-right">Muuda kasutaja kontakte</router-link></h6> </a>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -123,7 +123,7 @@ export default {
 </script>
 
 <style>
-h6 {
+#h6 {
   text-align: right;
 }
 .button {

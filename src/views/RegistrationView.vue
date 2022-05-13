@@ -1,12 +1,8 @@
 <template>
     <div>
       <br>
-      <label for="userName">Username</label>
-      <input type="text" id="userName" class="form-control" name="userName" formControlName="userName" v-model="username" placeholder="Kasutajanimi"/>
-      <div class="text-danger"
-           *ngIf="(userFormControl.userName.touched || submitted) && userFormControl.userName.errors?.required">
-        UserName is required
-      </div>
+
+      <input type="text" required v-model="username" placeholder="Kasutajanimi" >
       <br><br>
       <input type="text" v-model="password" placeholder="Parool">
       <br><br>

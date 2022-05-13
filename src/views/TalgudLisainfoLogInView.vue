@@ -60,8 +60,8 @@
       <br>
     </div>
 
-    <div v-if="showManageButton" class="d-grid gap-2 mx-auto">
-      <button v-on:click="manageButtonAction" class="btn btn-primary me-md-2">Redigeeri</button>
+    <div class="d-grid gap-2 mx-auto">
+      <button v-on:click="manageButtonAction" class="btn btn-primary me-md-2">{{ manageButtonText }}</button>
     </div>
 
   </div>
@@ -78,12 +78,12 @@ export default {
   data: function () {
     return {
       tasks: {},
+      resources: {},
       picturesTemp: {},
       project: JSON.parse(sessionStorage.getItem('project')),
       pictures: [],
       index: null,
-      showManageButton: false,
-
+      manageButtonText: ""
     }
   },
 
@@ -124,14 +124,23 @@ export default {
           })
           .catch(error => console.log(error.response.data))
     },
-
-    showManageButtonValue: function () {
+    manageButtonTextCheck: function () {
       if (this.project.isModerator) {
-        this.showManageButton = true
+        this.manageButtonText = "Redigeeri"
+      } else {
+        this.manageButtonText = "Vali omale vastutusala"
+
       }
     },
+
     manageButtonAction: function () {
-      this.$router.push({name: 'planningRoute'})
+      if (this.project.isModerator) {
+        this.$router.push({name: 'planningRoute'})
+      } else {
+
+        this.$router.push({name: 'userPlanningRoute'})
+      }
+
     },
 
   },
@@ -139,8 +148,7 @@ export default {
     this.getAllTasksForProject()
     this.getAllResourcesForProject()
     this.getAllPictures()
-    this.showManageButtonValue()
-
+    this.manageButtonTextCheck()
   },
 
 }

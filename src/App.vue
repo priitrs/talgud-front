@@ -38,7 +38,7 @@
           </a>
         </li>
         <a class="nav-link" href="#">
-          <button v-on:click="loginButtonAction" type="button" class="btn btn-light">{{ loginButtonText }}</button>
+          <button  v-on:click="loginButtonAction" type="button" class="btn btn-light">{{loginButtonText}}</button>
         </a>
       </ul>
     </div>
@@ -114,8 +114,7 @@ export default {
         sessionStorage.setItem('lastRoute', 'avalehtRoute')
         this.$router.push({name: 'loginRoute'})
       }
-    }
-
+    },
   },
 
   mounted() {

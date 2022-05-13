@@ -1,8 +1,12 @@
 <template>
-
     <div>
       <br>
-      <input type="text" v-model="username" placeholder="Kasutajanimi">
+      <label for="userName">Username</label>
+      <input type="text" id="userName" class="form-control" name="userName" formControlName="userName" v-model="username" placeholder="Kasutajanimi"/>
+      <div class="text-danger"
+           *ngIf="(userFormControl.userName.touched || submitted) && userFormControl.userName.errors?.required">
+        UserName is required
+      </div>
       <br><br>
       <input type="text" v-model="password" placeholder="Parool">
       <br><br>
@@ -17,10 +21,6 @@ export default {
   name: "LoginView",
   data: function () {
     return {
-      // firstname: "",
-      // lastname: "",
-      // phonenumber: "",
-      // email: "",
       username: "",
       password: "",
       userId: null,
@@ -30,10 +30,6 @@ export default {
   methods: {
     registrationRequest: function () {
       let user = {
-        // firstname: this.firstname,
-        // lastname: this.lastname,
-        // phonenumber: this.phonenumber,
-        // email: this.email,
         username: this.username,
         password: this.password
       }

@@ -11,6 +11,7 @@ import RegistrationView from "@/views/RegistrationView";
 import PlanningView from "@/views/PlanningView";
 import TalgudLisainfoLogInView from "@/views/TalgudLisainfoLogInView";
 import ContactView from "@/views/ContactView";
+import EditContactView from "@/views/EditContactView";
 
 Vue.use(VueRouter)
 
@@ -70,7 +71,11 @@ const routes = [
     name: 'contactRoute',
     component: ContactView
   },
-
+  {
+    path: '/editcontact',
+    name: 'contactRoute',
+    component: EditContactView
+  },
 ]
 
 const router = new VueRouter({

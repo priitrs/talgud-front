@@ -1,6 +1,5 @@
 <template xmlns="http://www.w3.org/1999/html">
   <div id="app">
-
     <br>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -33,6 +32,7 @@
         </li>
         <a class="nav-link" href="#">
         <button v-on:click="loginButtonAction" type="button" class="btn btn-light">{{loginButtonText}}</button></a>
+        <a> <h6><router-link to="/editContact" class="align-text-right">Muuda kasutaja andmeid</router-link></h6> </a>
       </ul>
     </div>
     <router-view/>
@@ -120,6 +120,9 @@ export default {
 
 
 <style>
+h6 {
+  text-align: right;
+}
 .button {
   display: inline-block;
   border-radius: 4px;

@@ -40,7 +40,7 @@ export default {
 .hero-body .title {
   text: 4px 4px 4px rgba(0, 0, 0, 0.6);
   padding: 40px 0 20px 0;
-  font-size: 40px;
+  font-size: 35px;
 }
 
 

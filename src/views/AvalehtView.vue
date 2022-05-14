@@ -1,13 +1,13 @@
-<template>
+<template xmlns:object-fit="http://www.w3.org/1999/xhtml">
   <div class="home">
     <section class="hero is-dark">
+
       <div class="hero-body">
+
+        <div class="imagecontainer"></div>
+
         <div class="container">
-
-          <br><br><br><br><br><br><br><br><br><br><br><br><br>
-          <h5 class="title">Talgud on nagu laulupidu, see on alateadlik vajadus tunda end kuhugi kuuluvana.</h5>
-          <h1 class="title">Oled oodatud talgutele!</h1>
-
+          <h1 class="title">Talgud on nagu laulupidu, see on alateadlik vajadus tunda end kuhugi kuuluvana.<br><br> Oled oodatud talgutele!</h1>
 
         </div>
       </div>
@@ -16,40 +16,32 @@
   </div>
 </template>
 
+
+
 <script>
-
-
 export default {
   name: "AvalehtView",
   comments: {},
-
 }
+
 </script>
-<style>
-.hero {
-  text-align: center;
-  background-image: url('https://i0.wp.com/x-coffee.ru/wp-content/uploads/2017/09/Zheludi_v_listve.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 400px;
 
+<style>
+
+.imagecontainer {
+  height: 400px;
+  background-image: url("https://www.redwall.ee/images/refs/talgud/talgud-header.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
 }
+
 
 .hero-body .title {
   text: 4px 4px 4px rgba(0, 0, 0, 0.6);
   padding: 40px 0 20px 0;
-  font-size: 50px;
+  font-size: 40px;
 }
-
-
-
-
-
-
-
-
-
 
 
 </style>

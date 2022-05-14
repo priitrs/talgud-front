@@ -49,8 +49,8 @@
     </div>
     <router-view/>
     <div id="footer">
-      www.talgud.ee. Kõik õigused kaitstud. Talgud OÜ Uus 12. Tallinn 11624. Infoliin E-R 10-18. tel 666 5820.
-      info@talgud.ee. <a href="https://www.MDBootstrap.com"></a>
+      &copy Kõik õigused kaitstud. Talgud OÜ Uus 12. Tallinn 11624. Infoliin E-R 10-18. tel 666 5820.
+      <a href="mailto:info@talgud.ee">info@talgud.ee</a>
     </div>
 
   </div>

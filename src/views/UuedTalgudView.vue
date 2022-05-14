@@ -1,6 +1,5 @@
 <template>
   <div>
-
     <AddGoogleMap/>
   </div>
 </template>

@@ -62,6 +62,7 @@
                      aria-label="Example text with button addon" aria-describedby="button-addon1">
             </div>
             <table class="table">
+              <caption>Vahendid</caption>
               <thead>
               <tr>
                 <th scope="col">Kustuta</th>

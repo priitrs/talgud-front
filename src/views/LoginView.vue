@@ -37,8 +37,9 @@ export default {
             this.userId = response.data
             sessionStorage.setItem('userId', this.userId)
             this.lastRoute = sessionStorage.getItem('lastRoute')
-            window.location.reload()
+
             this.$router.push({name: this.lastRoute})
+            window.location.reload()
           })
           .catch(error => console.log(error.response.data))
 

@@ -4,7 +4,7 @@
     <gmap-map
         :center="center"
         :zoom="7"
-        style="width:97%;  height: 600px;">
+        style="width:97%;  height: 450px;">
       <gmap-marker
           :key="index"
           v-for="(gmp, index) in locations"

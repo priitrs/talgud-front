@@ -38,7 +38,7 @@
           <gmap-map
               :zoom="10"
               :center="center"
-              style="width:97%;  height: 600px;"
+              style="width:97%;  height: 450px;"
           >
             <gmap-marker
                 :key="index"

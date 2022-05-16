@@ -1,6 +1,10 @@
 <template xmlns="http://www.w3.org/1999/html">
   <div id="app">
-    <a id="h6" v-if="userId > 0"> <h6><router-link to="/editContact" class="align-right">Muuda kasutaja kontakte </router-link></h6> </a>
+    <a id="h6" v-if="userId > 0">
+      <h6>
+        <router-link to="/editContact" class="align-right">Muuda kasutaja kontakte</router-link>
+      </h6>
+    </a>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -37,8 +41,8 @@
             <button type="button" class="button"><span>MINU TALGUD</span></button>
           </a>
         </li>
-        <a  class="nav-link">
-          <button v-on:click="loginButtonAction" type="button" class="btn btn-light" >{{ loginButtonText }}</button>
+        <a class="nav-link">
+          <button v-on:click="loginButtonAction" type="button" class="btn btn-light">{{ loginButtonText }}</button>
         </a>
         <a v-if="userId > 0" class="nav-link">
           <h4>Tere {{ loggedInContact.firstName }}!</h4>
@@ -99,7 +103,6 @@ export default {
         window.location.reload()
         this.$router.push({name: 'avalehtRoute'})
       } else {
-        sessionStorage.setItem('lastRoute', 'avalehtRoute')
         this.$router.push({name: 'loginRoute'})
       }
     },
@@ -126,6 +129,7 @@ export default {
 #h6 {
   text-align: right;
 }
+
 .button {
   display: inline-block;
   border-radius: 4px;
@@ -178,7 +182,7 @@ export default {
 
 #footer {
   position: absolute;
-  bottom: 0;
+  bottom: -1px;
   width: 100%;
   height: 100px;
 }

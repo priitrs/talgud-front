@@ -1,11 +1,15 @@
 <template>
   <div>
-    {{ project.projectName }}
-    <br>
-    {{ project.projectAddress }}
-    <br>
-    {{ project.projectStartTime }}
-    <br>
+    <div id="projekt">
+
+      {{ project.projectName }}
+      <br>
+      Asukoht: {{ project.projectAddress }}
+      <br>
+      Algus: {{ project.projectStartTime }}
+      <br>
+      Lõpp: {{ project.projectEndTime }}
+    </div>
     <br>
 
     <div id="tabel">
@@ -62,7 +66,6 @@
                      aria-label="Example text with button addon" aria-describedby="button-addon1">
             </div>
             <table class="table">
-              <caption>Vahendid</caption>
               <thead>
               <tr>
                 <th scope="col">Kustuta</th>
@@ -111,7 +114,7 @@
             <br>
             <div id="galerii">
               <img class="image" v-for="(picture, i) in pictures" :src="picture" :key="i"
-                   @click="index = i" style="height: 200px">
+                   @click="index = i" style="height: 100px">
               <vue-gallery-slideshow :images="pictures" :index="index" @close="index = null"></vue-gallery-slideshow>
             </div>
           </div>

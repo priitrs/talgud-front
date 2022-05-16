@@ -1,15 +1,15 @@
 <template>
 
-    <div>
-      <br>
-      <input type="text" v-model="username" placeholder="Kasutajanimi">
-      <br><br>
-      <input type="password" v-model="password" placeholder="Parool">
-      <br><br>
-      <div class="align-items-center">
-        <button v-on:click="registrationRequest" class="btn btn-dark">Registreeri uus kasutaja</button>
-      </div>
+  <div>
+    <br>
+    <input type="text" v-model="username" placeholder="Kasutajanimi">
+    <br><br>
+    <input type="password" v-model="password" placeholder="Parool">
+    <br><br>
+    <div class="align-items-center">
+      <button v-on:click="registrationRequest" class="btn btn-dark">Registreeri uus kasutaja</button>
     </div>
+  </div>
 </template>
 
 <script>

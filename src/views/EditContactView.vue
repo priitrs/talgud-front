@@ -35,8 +35,10 @@ export default {
       this.$http.post('/authentication/contact', user)
           .then(
             this.$router.push({name: 'avalehtRoute'})
+
           )
           .catch(error => console.log(error.response.data))
+      window.location.reload()
     }
   }
 }

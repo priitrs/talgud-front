@@ -1,7 +1,7 @@
 <template>
   <div>
     <div id="projekt">
-      <br>
+
       {{ project.projectName }}
       <br>
       Asukoht: {{ project.projectAddress }}

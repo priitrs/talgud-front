@@ -187,6 +187,7 @@ export default {
   height: 2.5rem;
 }
 
+
 nav a.router-link-exact-active {
   color: #FFFFFF;
   font-size: 28px;

@@ -1,13 +1,17 @@
 <template>
   <div>
-    {{ project.name }}
-    <br>
-    Asukoht: {{ project.address }}
-    <br>
-    Algus: {{ project.startTime }}
-    <br>
-    Lõpp: {{ project.endTime }}
-    <br>
+    <div id="projekt">
+      <br>
+      {{ project.name }}
+      <br>
+      Asukoht: {{ project.address }}
+      <br>
+      Algus: {{ project.startTime }}
+      <br>
+      Lõpp: {{ project.endTime }}
+    </div>
+
+
     <br>
     <div id="tabel">
       <div class="container-md">
@@ -52,7 +56,7 @@
 
             <div id="galerii">
               <img class="image" v-for="(picture, i) in pictures" :src="picture" :key="i"
-                   @click="index = i" style="height: 200px">
+                   @click="index = i" style="height: 120px">
               <vue-gallery-slideshow :images="pictures" :index="index" @close="index = null"></vue-gallery-slideshow>
             </div>
             <br>
@@ -170,5 +174,11 @@ export default {
 }
 
 </script>
+<style>
+.image {margin-left: 5px; margin-top: 5px;}
+#projekt{
+  font-family: "Trebuchet MS",sans-serif;
+}
+</style>
 
 

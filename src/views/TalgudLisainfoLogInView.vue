@@ -1,16 +1,17 @@
 <template>
   <div>
-    <br>
-    {{ project.projectName }}
-    <br>
-    Asukoht: {{ project.projectAddress }}
-    <br>
-    Algus: {{ project.projectStartTime }}
-    <br>
-    Lõpp: {{ project.projectEndTime }}
-    <br>
-    <br>
+    <div id="projekt">
+      <br>
+      {{ project.projectName }}
+      <br>
+      Asukoht: {{ project.projectAddress }}
+      <br>
+      Algus: {{ project.projectStartTime }}
+      <br>
+      Lõpp: {{ project.projectEndTime }}
+    </div>
 
+    <br>
     <div id="tabel">
       <div class="container-md">
         <div class="row justify-content-center">
@@ -51,7 +52,7 @@
 
             <div id="galerii">
               <img class="image" v-for="(picture, i) in pictures" :src="picture" :key="i"
-                   @click="index = i" style="height: 200px">
+                   @click="index = i" style="height: 120px">
               <vue-gallery-slideshow :images="pictures" :index="index" @close="index = null"></vue-gallery-slideshow>
             </div>
           </div>
@@ -132,7 +133,6 @@ export default {
 
       }
     },
-
     manageButtonAction: function () {
       if (this.project.isModerator) {
         this.$router.push({name: 'planningRoute'})

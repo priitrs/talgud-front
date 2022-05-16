@@ -9,7 +9,9 @@
       <button v-on:click="loginRequest" class="btn btn-dark">Logi sisse</button>
     </div>
     <br>
-    <a> <router-link to="/registration">Registreeri uus kasutaja</router-link> </a>
+    <a>
+      <router-link to="/registration">Registreeri uus kasutaja</router-link>
+    </a>
   </div>
 
 </template>
@@ -37,8 +39,12 @@ export default {
             this.userId = response.data
             sessionStorage.setItem('userId', this.userId)
             this.lastRoute = sessionStorage.getItem('lastRoute')
+            if (this.lastRoute === null) {
+              this.$router.push({name: 'avalehtRoute'})
+            } else {
+              this.$router.push({name: this.lastRoute})
+            }
 
-            this.$router.push({name: this.lastRoute})
             window.location.reload()
           })
           .catch(error => console.log(error.response.data))

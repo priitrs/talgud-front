@@ -1,4 +1,4 @@
-<template xmlns:object-fit="http://www.w3.org/1999/xhtml">
+<template>
   <div class="home">
     <section class="hero is-dark">
 
@@ -29,7 +29,7 @@ export default {
 <style>
 
 .imagecontainer {
-  height: 400px;
+  height: 250px;
   background-image: url("https://www.redwall.ee/images/refs/talgud/talgud-header.jpg");
   background-size: cover;
   background-repeat: no-repeat;
